@@ -8,11 +8,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Aleste\GeneratorBundle;
+namespace Aleste\Bundle\AdminLTEGeneratorBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AlesteAdminLTEGeneratorBundle extends Bundle
+class AdminLTEGeneratorBundle extends Bundle
 {
     public function getParent()
     {
