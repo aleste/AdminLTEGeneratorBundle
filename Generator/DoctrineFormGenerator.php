@@ -35,7 +35,7 @@ class DoctrineFormGenerator extends BaseGenerator
      */
     public function __construct(Filesystem $filesystem)
     {
-        parent::construct();
+        parent::__construct();
     }
 
     /**
