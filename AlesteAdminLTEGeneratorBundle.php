@@ -12,7 +12,7 @@ namespace Aleste\Bundle\AdminLTEGeneratorBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AdminLTEGeneratorBundle extends Bundle
+class AlesteAdminLTEGeneratorBundle extends Bundle
 {
     public function getParent()
     {
