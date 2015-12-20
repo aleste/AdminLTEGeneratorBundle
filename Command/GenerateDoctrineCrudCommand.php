@@ -15,7 +15,8 @@ use Sensio\Bundle\GeneratorBundle\Command\AutoComplete\EntitiesAutoCompleter;
 use Sensio\Bundle\GeneratorBundle\Command\Validators;
 use Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper;
 use Sensio\Bundle\GeneratorBundle\Generator\DoctrineCrudGenerator;
-use Sensio\Bundle\GeneratorBundle\Generator\DoctrineFormGenerator;
+//use Sensio\Bundle\GeneratorBundle\Generator\DoctrineFormGenerator;
+use Aleste\Bundle\AdminLTEGeneratorBundle\Generator\DoctrineFormGenerator;
 use Sensio\Bundle\GeneratorBundle\Manipulator\RoutingManipulator;
 
 /**
