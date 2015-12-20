@@ -117,7 +117,7 @@ EOT
 
         // form
         if ($withWrite) {
-            $this->generateForm($bundle, $entity, $metadata, $forceOverwrite);
+            $this->generateForms($bundle, $entity, $metadata, $forceOverwrite);
             $output->writeln('Generating the Form code: <info>OK</info>');
         }
 
@@ -219,9 +219,10 @@ EOT
     /**
      * Tries to generate forms if they don't exist yet and if we need write operations on entities.
      */
-    protected function generateForm($bundle, $entity, $metadata, $forceOverwrite = false)
+    protected function generateForms($bundle, $entity, $metadata, $forceOverwrite = false)
     {
         $this->getFormGenerator($bundle)->generate($bundle, $entity, $metadata[0], $forceOverwrite);
+        $this->getFormGenerator($bundle)->generateFormFilter($bundle, $entity, $metadata[0], $forceOverwrite);
     }
 
     protected function updateRouting(QuestionHelper $questionHelper, InputInterface $input, OutputInterface $output, BundleInterface $bundle, $format, $entity, $prefix)
