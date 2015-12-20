@@ -9,7 +9,8 @@
  * file that was distributed with this source code.
  */
 
-namespace Sensio\Bundle\GeneratorBundle\Generator;
+//namespace Sensio\Bundle\GeneratorBundle\Generator;
+namespace Aleste\Bundle\AdminLTEGeneratorBundle\Generator;
 
 /**
  * Generator is the base class for all generators.

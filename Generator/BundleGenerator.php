@@ -9,7 +9,8 @@
  * file that was distributed with this source code.
  */
 
-namespace Sensio\Bundle\GeneratorBundle\Generator;
+//namespace Sensio\Bundle\GeneratorBundle\Generator;
+namespace Aleste\Bundle\AdminLTEGeneratorBundle\Generator;
 
 use Sensio\Bundle\GeneratorBundle\Model\Bundle;
 use Symfony\Component\Filesystem\Filesystem;
