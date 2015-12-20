@@ -40,9 +40,9 @@ class GenerateDoctrineCrudCommand extends GenerateDoctrineCommand
     protected function configure()
     {
         $this
-            ->setName('doctrine:generate:crud')
-            ->setAliases(array('generate:doctrine:crud'))
-            ->setDescription('Generates a CRUD based on a Doctrine entity')
+            ->setName('aleste:generate:crud')
+            ->setAliases(array('generate:aleste:crud'))
+            ->setDescription('Generates a AdminLTE CRUD based on a Doctrine entity')
             ->setDefinition(array(
                 new InputArgument('entity', InputArgument::OPTIONAL, 'The entity class name to initialize (shortcut notation)'),
                 new InputOption('entity', '', InputOption::VALUE_REQUIRED, 'The entity class name to initialize (shortcut notation)'),
@@ -142,12 +142,12 @@ EOT
     protected function interact(InputInterface $input, OutputInterface $output)
     {
         $questionHelper = $this->getQuestionHelper();
-        $questionHelper->writeSection($output, 'Welcome to the Doctrine2 CRUD generator');
+        $questionHelper->writeSection($output, 'Welcome to the AdminLTE Doctrine2 CRUD generator');
 
         // namespace
         $output->writeln(array(
             '',
-            'This command helps you generate CRUD controllers and templates.',
+            'This command helps you generate CRUD controllers and AdminLTE templates.',
             '',
             'First, give the name of the existing entity for which you want to generate a CRUD',
             '(use the shortcut notation like <comment>AcmeBlogBundle:Post</comment>)',
