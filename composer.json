@@ -18,10 +18,7 @@
         "lexik/form-filter-bundle": "Needed for optional filters"
     },    
     "autoload": {
-        "psr-4": { "Aleste\\Bundle\\AdminLTEGeneratorBundle\\": "" },
-        "exclude-from-classmap": [
-            "/Tests/"
-        ]
+        "psr-4": { "Aleste\\Bundle\\AdminLTEGeneratorBundle\\": "" }
     },
     "minimum-stability": "dev",
     "extra": {
