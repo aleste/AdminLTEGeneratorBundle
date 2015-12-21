@@ -11,11 +11,9 @@
         }
     ],
     "require": {
-        "sensio/generator-bundle": "^3.0.1"
-    },
-    "suggest": {
-        "knplabs/knp-paginator-bundle": "Needed for optional pagination",
-        "lexik/form-filter-bundle": "Needed for optional filters"
+        "sensio/generator-bundle": "^3.0.1",
+        "knplabs/knp-paginator-bundle": "dev-master",
+        "lexik/form-filter-bundle": "dev-master"
     },    
     "autoload": {
         "psr-4": { "Aleste\\Bundle\\AdminLTEGeneratorBundle\\": "" }
