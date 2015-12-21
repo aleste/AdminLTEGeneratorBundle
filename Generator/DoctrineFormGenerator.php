@@ -14,7 +14,7 @@ namespace Aleste\Bundle\AdminLTEGeneratorBundle\Generator;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-use Sensio\Bundle\GeneratorBundle\Generator\Generator as BaseGenerator;
+use Sensio\Bundle\GeneratorBundle\Generator\Generator as Generator;
 
 /**
  * Generates a form class based on a Doctrine entity.
@@ -22,7 +22,7 @@ use Sensio\Bundle\GeneratorBundle\Generator\Generator as BaseGenerator;
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Hugo Hamon <hugo.hamon@sensio.com>
  */
-class DoctrineFormGenerator extends BaseGenerator
+class DoctrineFormGenerator extends Generator
 {
 
     private $filesystem;

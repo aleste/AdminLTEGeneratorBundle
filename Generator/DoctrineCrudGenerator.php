@@ -15,14 +15,14 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Doctrine\Common\Inflector\Inflector;
-use Sensio\Bundle\GeneratorBundle\Generator\Generator as BaseGenerator;
+use Sensio\Bundle\GeneratorBundle\Generator\Generator;
 
 /**
  * Generates a CRUD controller.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class DoctrineCrudGenerator extends BaseGenerator
+class DoctrineCrudGenerator extends Generator
 {
     protected $filesystem;
     protected $rootDir;
