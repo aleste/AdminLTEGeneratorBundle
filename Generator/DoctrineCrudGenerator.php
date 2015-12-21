@@ -64,7 +64,7 @@ class DoctrineCrudGenerator extends Generator
     {
         $this->routePrefix = $routePrefix;
         $this->routeNamePrefix = self::getRouteNamePrefix($routePrefix);
-        $this->actions = $needWriteActions ? array('index', 'show', 'new', 'edit', 'delete') : array('index', 'show');
+        $this->actions = $needWriteActions ? array('index', 'show', 'new', 'edit', 'delete', 'filter', 'sort') : array('index', 'show');
 
         if (count($metadata->identifier) != 1) {
             throw new \RuntimeException('The CRUD generator does not support entity classes with multiple or no primary keys.');
@@ -98,6 +98,8 @@ class DoctrineCrudGenerator extends Generator
         if (in_array('edit', $this->actions)) {
             $this->generateEditView($dir);
         }
+
+        $this->generateFilterView($dir);
 
         $this->generateTestClass();
         $this->generateConfiguration();
@@ -286,6 +288,27 @@ class DoctrineCrudGenerator extends Generator
             'actions' => $this->actions,
         ));
     }
+
+    /**
+     * Generates the index.html.twig template in the final bundle.
+     *
+     * @param string $dir The path to the folder that hosts templates in the bundle
+     */
+    protected function generateFilterView($dir)
+    {
+        $this->renderFile('crud/views/filter.html.twig.twig', $dir.'/filter.html.twig', array(
+            'bundle' => $this->bundle->getName(),
+            'entity' => $this->entity,
+            'entity_pluralized' => $this->entityPluralized,
+            'entity_singularized' => $this->entitySingularized,
+            'identifier' => $this->metadata->identifier[0],
+            'fields' => $this->metadata->fieldMappings,
+            'actions' => $this->actions,
+            'record_actions' => $this->getRecordActions(),
+            'route_prefix' => $this->routePrefix,
+            'route_name_prefix' => $this->routeNamePrefix,
+        ));
+    }    
 
     /**
      * Returns an array of record actions to generate (edit, show).

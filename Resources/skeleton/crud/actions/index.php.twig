@@ -1,0 +1,44 @@
+    /**
+{% block phpdoc_method_header %}
+     * Lists all {{ entity }} entities.
+{% endblock phpdoc_method_header %}
+     *
+{% block phpdoc_method_annotations %}
+{% if 'annotation' == format %}
+     * @Route("/", name="{{ route_name_prefix }}_index")
+     * @Method("GET")
+{% endif %}
+{% endblock phpdoc_method_annotations %}
+     */
+{% block method_definition %}
+    public function indexAction()
+{% endblock method_definition %}
+    {
+{% block method_body %}
+
+        $em = $this->getDoctrine()->getManager();
+
+        $form = $this->createForm(new {{ entity_class }}FilterType());
+        if (!is_null($response = $this->saveFilter($form, '{{ entity|lower }}', '{{ route_name_prefix }}'))) {
+            return $response;
+        }
+        
+
+        ${{ entity_pluralized }} = $em->getRepository('{{ bundle }}:{{ entity }}')->findAll();
+
+        $qb = $em->getRepository('{{ bundle }}:{{ entity }}')->createQueryBuilder('{{ entity|lower|slice(0, 1) }}');
+        if (is_array($order = $this->getOrder('{{ entity|lower }}'))) {
+            $qb->orderBy($order['field'], $order['type']);
+        }
+        $pagination = $this->filter($form, $qb, '{{ entity|lower }}');
+
+{% endblock method_body %}
+
+{% block method_return %}
+        return $this->render('{{ entity|lower|replace({'\\': '/'}) }}/index.html.twig', array(
+            'pagination' => $pagination,
+        ));
+{% endblock method_return %}
+    }
+
+
