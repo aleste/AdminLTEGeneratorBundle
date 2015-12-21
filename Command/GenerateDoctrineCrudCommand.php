@@ -338,4 +338,32 @@ EOT
     {
         $this->formGenerator = $formGenerator;
     }
+
+
+    protected function getSkeletonDirs(BundleInterface $bundle = null)
+    {
+        
+        $baseSkeletonDirs = parent::getSkeletonDirs($bundle);
+        $skeletonDirs = array();
+
+        if (isset($bundle) && is_dir($dir = $bundle->getPath().'/Resources/AdminLTEGeneratorBundle/skeleton')) {
+            $skeletonDirs[] = $dir;
+        }
+
+        if (is_dir($dir = $this->getContainer()->get('kernel')->getRootdir().'/Resources/AdminLTEGeneratorBundle/skeleton')) {
+            $skeletonDirs[] = $dir;
+        }
+
+        $skeletonDirs[] = __DIR__.'/../Resources/skeleton';
+        $skeletonDirs[] = __DIR__.'/../Resources';
+
+        $skeletonDirs[] = __DIR__.'/../Resources/skeleton';
+        $skeletonDirs[] = __DIR__.'/../Resources';
+
+        return array_merge($skeletonDirs, $baseSkeletonDirs);
+                
+    }
+
+
+
 }
