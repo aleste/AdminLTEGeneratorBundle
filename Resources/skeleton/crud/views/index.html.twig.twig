@@ -1,4 +1,6 @@
-{% extends "skeleton/crud/views/index.html.twig.twig" %}
+{% block extends %}
+{{ "{% extends 'base.html.twig' %}" }}
+{% endblock extends %}
 
 {% block body %}
 {{ "{% macro thead(name, field, label) %}
@@ -118,7 +120,3 @@
 	</div>
 {{ "{% endblock %}" }}
 {% endblock body %}
-
-
-
-
