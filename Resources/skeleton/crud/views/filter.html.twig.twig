@@ -1,2 +1,15 @@
-
-FILTROS
+<button type="button" class="btn btn-default btn-sm filter" data-toggle="collapse" data-target="#filter">{{ "{{ 'Show/hide filters'|trans({}, 'admin') }}" }} <i class="fa fa-angle-{{ "{{ app.session.get('filter." ~ entity|lower ~ "') ? 'right' : 'down' }}" }}"></i></button>
+<div id="filter" class="collapse {{ "{% if app.session.get('filter." ~ entity|lower ~ "') %} in{% endif %}" }}">
+	<div class="well well-sm bs-component col-lg-6">
+		    <form method="get" action="">
+		        {{ "{{ form_widget(form) }}" }}
+		        <br>
+		        <p class="btn-group">
+		            <button class="btn btn-primary btn-sm" type="submit" name="submit-filter"><i class="fa fa-filter"></i> {{ "{{ 'Filter'|trans({}, 'admin') }}" }}</button>
+		            <a class="btn btn-default btn-sm" href="?reset-filter"><i class="fa fa-times"></i> {{ "{{ 'Reset filters'|trans({}, 'admin') }}" }}</a>
+		        </p>
+		    </form>
+	</div>
+</div>
+<br>
+<br>
