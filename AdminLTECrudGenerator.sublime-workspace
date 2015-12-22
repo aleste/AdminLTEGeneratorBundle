@@ -1,0 +1,623 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Form",
+				"FormInterface"
+			],
+			[
+				"e",
+				"elseif	elseif …"
+			],
+			[
+				"getPer",
+				"getPersonaRemitente"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Resources/skeleton/crud/views/index.html.twig.twig",
+			"settings":
+			{
+				"buffer_size": 5248,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 601.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle",
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources",
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton",
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud",
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views",
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/filter"
+	],
+	"file_history":
+	[
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Resources/views/Persona/index.html.twig",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Controller/PersonaController.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Form/Type/EntradaSalidaFilterType.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Entity/Documento.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Manager/DocumentoManager.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Entity/Persona.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/UsuarioBundle/Controller/SecurityController.php",
+		"/home/aleste/Proyectos/www/sgdoc/app/config/security.yml",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Form/Type/DocumentoFilterType.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Resources/views/Documento/filter.html.twig",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Repository/DocumentoRepository.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Repository/NumeracionRepository.php",
+		"/home/aleste/Proyectos/www/sgdoc/app/config/servicios.yml",
+		"/home/aleste/Proyectos/www/sgdoc/composer.json",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/UsuarioBundle/Controller/UsuarioController.php",
+		"/home/aleste/Proyectos/www/sgdoc/vendor/doctrine/common/composer.json",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/UsuarioBundle/Entity/Usuario.php",
+		"/home/aleste/Proyectos/www/sgdoc/vendor/friendsofsymfony/user-bundle/Model/User.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/UsuarioBundle/Form/Type/UsuarioType.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Repository/EntidadRepository.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Resources/views/Documento/CommonColumn/_numero.html.twig",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Resources/views/Gestion/_menu_solo.html.twig",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Form/Type/TipoDocumentoType.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Form/Type/DocumentoEgresoType.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Entity/Entidad.php",
+		"/home/aleste/Proyectos/www/sgdoc/app/config/parameters.yml",
+		"/home/aleste/Proyectos/www/sgdoc/app/config/routing.yml",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/UsuarioBundle/Resources/views/Resetting/reset_content.html.twig",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Entity/Adjunto.php",
+		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Controller/DocumentoController.php",
+		"/home/aleste/Proyectos/www/sgdoc/composer.lock",
+		"/home/aleste/Proyectos/www/sgdoc/app/autoload.php",
+		"/home/aleste/www/sgdoc/app/config/parameters.yml",
+		"/home/aleste/www/sgdoc/composer.json",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Controller/DefaultController.php",
+		"/home/aleste/www/sgdoc/src/Aleste/UsuarioBundle/Controller/SecurityController.php",
+		"/home/aleste/www/sgdoc/src/Aleste/UsuarioBundle/Resources/views/Security/login.html.twig",
+		"/home/aleste/www/sgdoc/app/config/config.yml",
+		"/home/aleste/www/sgdoc/app/config/aplicacion.yml",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Entity/Documento.php",
+		"/home/aleste/www/sgdoc/src/Aleste/UsuarioBundle/Resources/translations/admin.es.yml",
+		"/home/aleste/www/sgdoc/app/logs/dev.log",
+		"/home/aleste/www/sgdoc/app/config/security.yml",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Controller/DocumentoController.php",
+		"/home/aleste/www/sgdoc/web/bundles/gestion/css/bootstrap.min.css",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Resources/views/Default/_javascripts.html.twig",
+		"/home/aleste/www/sgdoc/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/JsonResponse.php",
+		"/home/aleste/www/sgdoc/vendor/symfony/symfony/src/Symfony/Component/BrowserKit/Response.php",
+		"/home/aleste/www/sgdoc/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Response.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Resources/public/css/font-awesome.css",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Resources/public/js/managers/documento-ingreso.js",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Form/Type/DocumentoEgresoType.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Command/AvisosCommand.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Repository/MovimientoRepository.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Controller/DocumentoAjaxController.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Entity/Adjunto.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Repository/AdjuntoRepository.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Entity/Movimiento.php",
+		"/home/aleste/www/sgdoc/src/Aleste/UsuarioBundle/Resources/views/Profile/show_content.html.twig",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Repository/DocumentoRepository.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Resources/views/Documento/entradaSalida.html.twig",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Resources/views/Documento/consulta.html.twig",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Manager/DocumentoManager.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Entity/Entidad.php",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Repository/EntidadRepository.php",
+		"/home/aleste/www/sgdoc/web/config.php",
+		"/home/aleste/www/sgdoc/app/console",
+		"/home/aleste/www/sgdoc/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Exception/ParameterCircularReferenceException.php",
+		"/home/aleste/www/sgdoc/datosPersonas.sql",
+		"/home/aleste/www/sgdoc/vendor/jms/serializer/src/JMS/Serializer/EventDispatcher/EventDispatcher.php",
+		"/home/aleste/www/sgdoc/entidades.sql",
+		"/home/aleste/www/sgdoc/app/config/parameters.yml.dist",
+		"/home/aleste/www/sgdoc/src/Aleste/GestionBundle/Entity/DocumentoHash.php",
+		"/home/aleste/www/sgdoc/web/bundles/gestion/js/managers/documento-egreso.js",
+		"/home/aleste/www/sgdoc/bin/doctrine",
+		"/home/aleste/www/sgdoc/vendor/phpoffice/phpexcel/unitTests/rawTestData/Calculation/Engineering/DEC2OCT.data",
+		"/home/aleste/sharedFolderVM/sig.sql",
+		"/home/aleste/Descargas/aubasa_bd.sql",
+		"/home/aleste/www/sgdoc/vendor/jms/security-extra-bundle/JMS/SecurityExtraBundle/Annotation/PreAuthorize.php",
+		"/home/aleste/www/sgdoc/app/phpunit.xml.dist",
+		"/home/aleste/www/gea/web/bundles/gestion/js/fullscreen.js",
+		"/home/aleste/www/gea/vendor/friendsofsymfony/user-bundle/Event/FilterUserResponseEvent.php",
+		"/home/aleste/www/gea/app/cache/dev/assetic/assets/f9b3b1380f4c24204a31bc576e1fc317",
+		"/home/aleste/www/gea/vendor/egeloen/google-map/doc/usage/services/business_account.md",
+		"/home/aleste/www/gea/app/bootstrap.php.cache",
+		"/home/aleste/www/gea/src/Aleste/GestionBundle/Resources/views/Default/_javascripts.html.twig",
+		"/home/aleste/www/gea/src/Aleste/GestionBundle/Resources/views/layout.html.twig",
+		"/home/aleste/www/gea/LICENSE",
+		"/home/aleste/www/gea/vendor/doctrine/collections/tests/Doctrine/Tests/LazyArrayCollection.php",
+		"/home/aleste/www/gea/app/autoload.php",
+		"/home/aleste/www/gea/vendor/autoload.php",
+		"/home/aleste/www/gea/vendor/zendframework/zend-stdlib/Zend/Stdlib/ArrayUtils.php"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"saveFilter",
+			"filter",
+			"saveFilter",
+			"filter",
+			"filter_date_range",
+			"filter_date",
+			"saveFilter",
+			"addQueryBuilderSort",
+			"fos_user_security_check",
+			"roles",
+			"$user2",
+			"Usuario",
+			"expose",
+			"getQueryTipoEntidadCoordinacion",
+			"extrac",
+			"expNumero",
+			"numeroE",
+			"numero",
+			"expediente",
+			"download",
+			"Descargar",
+			"twig",
+			"bundle",
+			"$em",
+			"addFilterConditions",
+			"saveFilter",
+			"archi",
+			"login",
+			"generateCsrfToken",
+			"orm",
+			"anio",
+			"desde",
+			"getEntradas",
+			"ByF",
+			"fecha",
+			"function is",
+			"isExpediente",
+			"function is",
+			"is",
+			"movimie",
+			"remove_documento_ingreso_adjunto",
+			"documentoIngresoManager",
+			"removeDocumentoIngresoAdjunto",
+			"HTTP_ERROR",
+			"adjunto",
+			"table",
+			"gestion_documento_adjunto_download",
+			"upload_files_adjuntos",
+			"documentoId",
+			"upload_files_adjuntos",
+			"adjuntos",
+			"adjunto",
+			"v=4.1.0",
+			"alert",
+			"lista",
+			"elemen",
+			"excel",
+			"exportarExcel",
+			"gestion_documento_entrada_salida",
+			"vigente",
+			"FullScreenControl"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"v=4.1.1"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Resources/skeleton/crud/views/index.html.twig.twig",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "AdminLTECrudGenerator.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"appk",
+				"app/AppKernel.php"
+			],
+			[
+				"coom",
+				"composer.json"
+			],
+			[
+				"conf",
+				"app/config/config.yml"
+			],
+			[
+				"config",
+				"app/config/config.yml"
+			],
+			[
+				"sec",
+				"app/config/security.yml"
+			],
+			[
+				"secur",
+				"src/Aleste/UsuarioBundle/Controller/SecurityController.php"
+			],
+			[
+				"persona.",
+				"src/Aleste/GestionBundle/Entity/Persona.php"
+			],
+			[
+				"persona",
+				"src/Aleste/GestionBundle/Entity/Persona.php"
+			],
+			[
+				"documentomana",
+				"src/Aleste/GestionBundle/Manager/DocumentoManager.php"
+			],
+			[
+				"documento",
+				"src/Aleste/GestionBundle/Entity/Documento.php"
+			],
+			[
+				"composer.json",
+				"composer.json"
+			],
+			[
+				"composer",
+				"composer.lock"
+			],
+			[
+				"conposer",
+				"vendor/doctrine/common/composer.json"
+			],
+			[
+				"rout",
+				"app/config/routing.yml"
+			],
+			[
+				"parame",
+				"app/config/parameters.yml"
+			],
+			[
+				"ususario",
+				"src/Aleste/UsuarioBundle/Controller/UsuarioController.php"
+			],
+			[
+				"securitycon",
+				"src/Aleste/UsuarioBundle/Controller/SecurityController.php"
+			],
+			[
+				"user",
+				"vendor/friendsofsymfony/user-bundle/Model/User.php"
+			],
+			[
+				"usuario",
+				"src/Aleste/UsuarioBundle/Entity/Usuario.php"
+			],
+			[
+				"",
+				"src/Aleste/UsuarioBundle/Entity/Usuario.php"
+			],
+			[
+				"documentoc",
+				"src/Aleste/GestionBundle/Controller/DocumentoController.php"
+			],
+			[
+				"enti",
+				"src/Aleste/GestionBundle/Repository/EntidadRepository.php"
+			],
+			[
+				"adjunto",
+				"src/Aleste/GestionBundle/Entity/Adjunto.php"
+			],
+			[
+				"servi",
+				"app/config/servicios.yml"
+			],
+			[
+				"numer",
+				"src/Aleste/GestionBundle/Repository/NumeracionRepository.php"
+			],
+			[
+				"documentor",
+				"src/Aleste/GestionBundle/Repository/DocumentoRepository.php"
+			],
+			[
+				"entidad",
+				"src/Aleste/GestionBundle/Entity/Entidad.php"
+			],
+			[
+				"documentoty",
+				"src/Aleste/GestionBundle/Form/Type/DocumentoEgresoType.php"
+			],
+			[
+				"documentot",
+				"src/Aleste/GestionBundle/Form/Type/TipoDocumentoType.php"
+			],
+			[
+				"aut",
+				"app/autoload.php"
+			],
+			[
+				"compose",
+				"composer.json"
+			],
+			[
+				"documenr",
+				"src/Aleste/GestionBundle/Repository/DocumentoRepository.php"
+			],
+			[
+				"documentofilter",
+				"src/Aleste/GestionBundle/Form/Type/DocumentoFilterType.php"
+			],
+			[
+				"admin.",
+				"src/Aleste/UsuarioBundle/Resources/translations/admin.es.yml"
+			],
+			[
+				"secu",
+				"app/config/security.yml"
+			],
+			[
+				"movimiento",
+				"src/Aleste/GestionBundle/Repository/MovimientoRepository.php"
+			],
+			[
+				"documentore",
+				"~/www/sgdoc/src/Aleste/GestionBundle/Repository/DocumentoRepository.php"
+			],
+			[
+				"bootstrap.m",
+				"web/bundles/gestion/css/bootstrap.min.css"
+			],
+			[
+				"_java",
+				"src/Aleste/GestionBundle/Resources/views/Default/_javascripts.html.twig"
+			],
+			[
+				"response",
+				"vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Response.php"
+			],
+			[
+				"respo",
+				"vendor/symfony/symfony/src/Symfony/Component/BrowserKit/Response.php"
+			],
+			[
+				"jsonres",
+				"vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/JsonResponse.php"
+			],
+			[
+				"documentocon",
+				"src/Aleste/GestionBundle/Controller/DocumentoController.php"
+			],
+			[
+				"documentocontro",
+				"src/Aleste/GestionBundle/Controller/DocumentoController.php"
+			],
+			[
+				"documentoegreso",
+				"src/Aleste/GestionBundle/Form/Type/DocumentoEgresoType.php"
+			],
+			[
+				"para",
+				"app/config/parameters.yml"
+			],
+			[
+				"adjuntore",
+				"src/Aleste/GestionBundle/Repository/AdjuntoRepository.php"
+			],
+			[
+				"paramer",
+				"app/config/parameters.yml"
+			],
+			[
+				"movimi",
+				"src/Aleste/GestionBundle/Entity/Movimiento.php"
+			],
+			[
+				"movi",
+				"src/Aleste/GestionBundle/Entity/Movimiento.php"
+			],
+			[
+				"composer.",
+				"composer.json"
+			],
+			[
+				"param",
+				"app/config/parameters.yml"
+			],
+			[
+				"entidadre",
+				"src/Aleste/GestionBundle/Repository/EntidadRepository.php"
+			],
+			[
+				"docuen",
+				"src/Aleste/GestionBundle/Manager/DocumentoManager.php"
+			],
+			[
+				"full",
+				"web/bundles/gestion/js/fullscreen.js"
+			],
+			[
+				"base.",
+				"app/Resources/views/base.html.twig"
+			],
+			[
+				"lay",
+				"src/Aleste/GestionBundle/Resources/views/layout.html.twig"
+			],
+			[
+				"auto",
+				"app/autoload.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Proyectos/www/sgdoc/sgdoc.sublime-project"
+			],
+			[
+				"aob",
+				"~/www/aob/aob.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 371.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
