@@ -52,7 +52,7 @@
 
 		                <th>Acciones</th>
 		            </tr>              
-					{{ '{% for ' ~ entity_singularized ~ ' in ' ~ entity_pluralized ~ ' %}' }}
+					{{ '{% for ' ~ entity_singularized ~ ' in pagination %}' }}
 				        <tr>
 				        {%- for field, metadata in fields %}
 				            {%- if loop.first and ('show' in actions) %}
