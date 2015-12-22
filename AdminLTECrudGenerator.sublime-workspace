@@ -23,7 +23,23 @@
 			"file": "Resources/skeleton/crud/views/index.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 5248,
+				"buffer_size": 5352,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Resources/skeleton/crud/actions/index.php.twig",
+			"settings":
+			{
+				"buffer_size": 1445,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Resources/skeleton/crud/controller.php.twig",
+			"settings":
+			{
+				"buffer_size": 1907,
 				"line_ending": "Unix"
 			}
 		}
@@ -69,6 +85,7 @@
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud",
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/actions",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/filter"
 	],
@@ -263,24 +280,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
 					"file": "Resources/skeleton/crud/views/index.html.twig.twig",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5248,
+						"buffer_size": 5352,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1331,
+								1331
 							]
 						],
 						"settings":
@@ -289,10 +306,70 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Resources/skeleton/crud/actions/index.php.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1445,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								694,
+								694
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Resources/skeleton/crud/controller.php.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1907,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								522,
+								522
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

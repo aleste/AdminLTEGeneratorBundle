@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 {%- endif %}
 use Symfony\Component\Form\FormInterface;
+use Doctrine\ORM\QueryBuilder;
 use {{ namespace }}\Entity\{{ entity }};
 {% if 'new' in actions or 'edit' in actions %}
 use {{ namespace }}\Form\{{ entity }}Type;
