@@ -21,8 +21,7 @@
         $form = $this->createForm(new {{ entity_class }}FilterType());
         if (!is_null($response = $this->saveFilter($form, '{{ entity|lower }}', '{{ route_name_prefix }}_index'))) {
             return $response;
-        }
-        
+        }        
 
         ${{ entity_pluralized }} = $em->getRepository('{{ bundle }}:{{ entity }}')->findAll();
 
@@ -36,7 +35,7 @@
 
 {% block method_return %}
         return $this->render('{{ entity|lower|replace({'\\': '/'}) }}/index.html.twig', array(
-            'form' => $form,
+            'form' => $form->createView(),
             'pagination' => $pagination,
         ));
 {% endblock method_return %}
