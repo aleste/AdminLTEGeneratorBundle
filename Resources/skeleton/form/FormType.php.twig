@@ -28,11 +28,10 @@ class {{ form_class }} extends AbstractType
         {%- for field in fields -%}
             {%- if fields_mapping[field]['type'] in ['date', 'time', 'datetime'] %}
 
-            ->add('{{ field }}', '{{ fields_mapping[field]['type'] }}')
+            ->add('{{ field }}', '{{ fields_mapping[field]['type'] }}', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control') ) )
 
             {%- else %}
-
-            ->add('{{ field }}')
+                ->add('{{ field }}', null, array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))            
 
             {%- endif -%}
         {%- endfor %}

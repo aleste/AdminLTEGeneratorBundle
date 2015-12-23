@@ -3,15 +3,38 @@
 {% endblock extends %}
 
 {% block body %}
+{{ "{% form_theme edit_form 'AdminLTEGeneratorBundle:widget:fields.html.twig' %}" }}
 {{ "{% block body %}" }}
-    <h1>{{ entity }} edit</h1>
 
-    {{ '{{ form_start(edit_form) }}' }}
-        {{ '{{ form_widget(edit_form) }}' }}
-        <input type="submit" value="Edit" />
-    {{ '{{ form_end(edit_form) }}' }}
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-6">
 
-{% set hide_edit, hide_delete = true, false %}
-{{ include('crud/views/others/record_actions.html.twig.twig') -}}
+
+						<div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Editar {{ entity }}</h3>
+                        </div>                         
+                         {{ '{{ form_start(edit_form, {"attr":{"novalidate":"novalidate"}}) }}' }}
+                        <div class="box-body">
+        				{{ '{{ form_widget(edit_form) }}' }}
+        				</div>
+        				<div class="box-footer">        					
+        					<button type="submit" class="btn btn-primary btn-sm">Guardar</button>        	        	
+    					{{ '{{ form_end(edit_form) }}' }}
+
+    					{% set hide_edit, hide_delete = true, false %}
+
+						{{ include('crud/views/others/record_actions.html.twig.twig') -}}
+
+						</div>
+					</div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
 {{ "{% endblock %}" }}
 {% endblock body %}

@@ -1,15 +1,27 @@
-<button type="button" class="btn btn-default btn-sm filter" data-toggle="collapse" data-target="#filter">{{ "{{ 'Show/hide filters'|trans({}, 'admin') }}" }} <i class="fa fa-angle-{{ "{{ app.session.get('filter." ~ entity|lower ~ "') ? 'right' : 'down' }}" }}"></i></button>
-<div id="filter" class="collapse {{ "{% if app.session.get('filter." ~ entity|lower ~ "') %} in{% endif %}" }}">
-	<div class="well well-sm bs-component col-lg-6">
-		    <form method="get" action="">
-		        {{ "{{ form_widget(form) }}" }}
-		        <br>
-		        <p class="btn-group">
-		            <button class="btn btn-primary btn-sm" type="submit" name="submit-filter"><i class="fa fa-filter"></i> {{ "{{ 'Filter'|trans({}, 'admin') }}" }}</button>
-		            <a class="btn btn-default btn-sm" href="?reset-filter"><i class="fa fa-times"></i> {{ "{{ 'Reset filters'|trans({}, 'admin') }}" }}</a>
-		        </p>
-		    </form>
-	</div>
+<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#filterModal">
+	<i class="fa fa-filter {{ "{{ app.session.get('filter." ~ entity|lower ~ "') ? 'red' : '' }}" }}"></i>
+</button>
+
+<div class="modal" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<h4 class="modal-title" id="myModalLabel">Filtros de búqueda <small>Aplique uno o más filtros</small></h4>
+      		</div>
+		<div class="modal-body">  
+			<div id="filter" >				
+				<form method="get" action="">
+					{{ "{{ form_widget(form) }}" }}
+
+			</div>
+		</div>		
+		<div class="modal-footer">
+       		<button class="btn btn-primary btn-sm" type="submit" name="submit-filter"><i class="fa fa-filter"></i> Filtrar</button>
+        	<a class="btn btn-default btn-sm" href="?reset-filter"><i class="fa fa-eraser"></i> Quitar filtros</a>
+        	<button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+      </div>
+		</form>
+    </div>
+  </div>
 </div>
-<br>
-<br>

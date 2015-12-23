@@ -4,14 +4,31 @@
 
 {% block body %}
 {{ "{% block body %}" }}
-    <h1>{{ entity }} creation</h1>
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-6">
+                     <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Nuevo {{ entity }}</h3>
+                        </div>                        
+                        {{ '{{ form_start(form, {"attr":{"novalidate":"novalidate"}}) }}' }}
+                        <div class="box-body">
+        				{{ '{{ form_widget(form) }}' }}
+        				</div>
+        				<div class="box-footer">        					
+        					<button type="submit" class="btn btn-primary btn-sm">Guardar</button>        	        	
+    					{{ '{{ form_end(form) }}' }}
 
-    {{ '{{ form_start(form) }}' }}
-        {{ '{{ form_widget(form) }}' }}
-        <input type="submit" value="Create" />
-    {{ '{{ form_end(form) }}' }}
+    					{% set hide_edit, hide_delete = true, true %}
 
-{% set hide_edit, hide_delete = true, true %}
-{{ include('crud/views/others/record_actions.html.twig.twig') -}}
+						{{ include('crud/views/others/record_actions.html.twig.twig') -}}
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+ 	</div>
 {{ "{% endblock %}" }}
 {% endblock body %}
