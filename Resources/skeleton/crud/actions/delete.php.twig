@@ -23,6 +23,7 @@
             $em = $this->getDoctrine()->getManager();
             $em->remove(${{ entity_singularized }});
             $em->flush();
+            $this->addFlash('success', 'Operación efectuada correctamente!');
         }
 {% endblock method_body %}
 

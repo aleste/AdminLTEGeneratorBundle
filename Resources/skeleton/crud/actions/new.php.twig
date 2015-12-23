@@ -25,11 +25,9 @@
             $em->persist(${{ entity_singularized }});
             $em->flush();
 
-            {% if 'show' in actions -%}
-                return $this->redirectToRoute('{{ route_name_prefix }}_show', array('id' => ${{ entity_singularized }}->getId()));
-            {%- else -%}
-                return $this->redirectToRoute('{{ route_name_prefix }}_index'));
-            {%- endif %}
+            $this->addFlash('success', 'Operación efectuada correctamente!');
+            
+            return $this->redirectToRoute('{{ route_name_prefix }}_index');            
 
         }
 {% endblock method_body %}
