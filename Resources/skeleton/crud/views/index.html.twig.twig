@@ -89,12 +89,14 @@
 				                	<div class="tools">
 				                		{%- for action in record_actions %}
 				                			{% if action == 'edit' %}
-				                				{% set iconBtn = 'fa-edit' %}		                					
+				                				{% set iconBtn = 'fa-edit' %}		
+				                				{% set textBtn = 'Editar' %}                					
 				                			{% endif %}		                 
 				                			{% if action == 'show' %}
-				                				{% set iconBtn = 'fa-eye' %}		                					
+				                				{% set iconBtn = 'fa-eye' %}		
+				                				{% set textBtn = 'Ver' %}                	                					
 				                			{% endif %}		                       
-				                            <a class="btn btn-default btn-sm" href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}"><i class="fa {{iconBtn}}"></i>&nbsp;{{ action }}</a>		                        
+				                            <a class="btn btn-default btn-sm" href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}"><i class="fa {{iconBtn}}"></i>&nbsp;{{ textBtn }}</a>		                        
 				                    {%- endfor %}
 		                    		
 		                  		</div>		                    

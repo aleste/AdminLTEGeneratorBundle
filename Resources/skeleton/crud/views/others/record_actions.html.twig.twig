@@ -1,24 +1,89 @@
-    <ul>
-        <li>
-            <a href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}">Back to the list</a>
-        </li>
+{%- if ('delete' in actions) and (not hide_delete) %}        
+    {{ '{{ form_start(delete_form) }}' }}    
+{%- endif %}
 
-        {%- if ('edit' in actions) and (not hide_edit) %}
+<a href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}" role="button" class="btn btn-default btn-sm"><i class="fa fa-list"></i> Ir a la lista</a>    
 
-        <li>
-            <a href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">Edit</a>
-        </li>
+{%- if ('edit' in actions) and (not hide_edit) %}        
+    <a href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}" role="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Editar</a>        
+{%- endif %}
 
-        {%- endif %}
+{%- if ('delete' in actions) and (not hide_delete) %}        
+        <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash-o"></i> Borrar</button>
+{% endif %}
 
-        {%- if ('delete' in actions) and (not hide_delete) %}
+{%- if ('delete' in actions) and (not hide_delete) %}        
+     <input name="modal" type="hidden" value="0">     
+     {{ '{{ form_end(delete_form) }}' }}        
 
-        <li>
-            {{ '{{ form_start(delete_form) }}' }}
-                <input type="submit" value="Delete">
-            {{ '{{ form_end(delete_form) }}' }}
-        </li>
+<div id="delete_confirm" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Borrar registro</h3>
+            </div>
+            <div class="modal-body">
+                <p>Está por borrar el registro. Este proceso es irreversible.</p>
+                <p>¿Desea continuar?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger">Si, borrar</button>
+                <button class="btn btn-secondary" data-dismiss="modal">No, cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{%- endif %}
+    
 
-        {%- endif %}
 
-    </ul>
+
+
+{% if ('delete' in actions) and (not hide_delete) %}
+<form id="delete" action="{{ "{{ path('"~ route_name_prefix ~"_delete', {id: "~ entity_singularized ~".id}) }}" }}" method="post">
+    {{ '{{ form_widget(delete_form) }}' }}
+{% endif %}
+
+    <div class="btn-group">
+
+        <a class="btn btn-info" href="{{ "{{ path('"~ route_name_prefix ~"_index') }}" }}">
+            <i class="fa fa-list"></i> Ir a la lista
+        </a>
+
+{% if ('edit' in actions) and (not hide_edit) %}
+        <a class="btn btn-primary" href="{{ "{{ path('"~ route_name_prefix ~"_edit', {id: "~ entity|lower ~".id}) }}" }}">
+            <i class="fa fa-edit"></i> Editar
+        </a>
+{% endif %}
+
+{% if ('delete' in actions) and (not hide_delete) %}
+        <button class="btn btn-danger" type="submit"><i class="fa fa-trash-o"></i> Borrar" }}</button>
+{% endif %}
+
+    </div>
+
+{% if ('delete' in actions) and (not hide_delete) %}
+    <input name="modal" type="hidden" value="0">
+</form>
+
+<div id="delete_confirm" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Eliminar registro</h3>
+            </div>
+            <div class="modal-body">
+                <p>Está por borrar el registro; este proceso es irreversible.</p>
+                <p>¿Desea continuar?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger">Sí, borrar</button>
+                <button class="btn btn-secondary" data-dismiss="modal">No, cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+

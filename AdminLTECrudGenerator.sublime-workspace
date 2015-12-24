@@ -23,7 +23,7 @@
 			"file": "Resources/skeleton/crud/views/new.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 1134,
+				"buffer_size": 1046,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,7 +31,7 @@
 			"file": "Resources/skeleton/crud/views/edit.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 1257,
+				"buffer_size": 1095,
 				"line_ending": "Unix"
 			}
 		},
@@ -68,26 +68,10 @@
 			}
 		},
 		{
-			"file": "Resources/skeleton/crud/actions/new.php.twig",
-			"settings":
-			{
-				"buffer_size": 1392,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Resources/skeleton/crud/actions/show.php.twig",
-			"settings":
-			{
-				"buffer_size": 997,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Resources/skeleton/crud/views/show.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 3133,
+				"buffer_size": 3038,
 				"line_ending": "Unix"
 			}
 		},
@@ -103,7 +87,18 @@
 			"file": "Resources/skeleton/crud/views/index.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 5323,
+				"buffer_size": 5366,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{%- if ('delete' in actions) and (not hide_delete) %}        \n    {{ '{{ form_start(delete_form) }}' }}    \n{%- endif %}\n\n<a href=\"{{ \"{{ path('\" ~ route_name_prefix ~ \"_index') }}\" }}\" role=\"button\" class=\"btn btn-default btn-sm\"><i class=\"fa fa-list\"></i> Ir a la lista</a>    \n\n{%- if ('edit' in actions) and (not hide_edit) %}        \n    <a href=\"{{ \"{{ path('\" ~ route_name_prefix ~ \"_edit', { 'id': \" ~ entity_singularized ~ \".\"~ identifier ~\" }) }}\" }}\" role=\"button\" class=\"btn btn-primary btn-sm\"><i class=\"fa fa-edit\"></i> Editar</a>        \n{%- endif %}\n\n{%- if ('delete' in actions) and (not hide_delete) %}        \n        <button class=\"btn btn-danger\" type=\"submit\"><i class=\"fa fa-trash-o\"></i> Borrar</button>\n{% endif %}\n\n{%- if ('delete' in actions) and (not hide_delete) %}        \n     <input name=\"modal\" type=\"hidden\" value=\"0\">     \n     {{ '{{ form_end(delete_form) }}' }}        \n\n<div id=\"delete_confirm\" class=\"modal fade\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n                <h3>{{ \"{{ 'Confirm delete'|trans({}, 'admin') }}\" }}</h3>\n            </div>\n            <div class=\"modal-body\">\n                <p>{{ \"{{ 'You are about to delete an item'|trans({}, 'admin') }}\" }}, {{ \"{{ 'this procedure is irreversible'|trans({}, 'admin') }}\" }}.</p>\n                <p>{{ \"{{ 'Do you want to proceed?'|trans({}, 'admin') }}\" }}</p>\n            </div>\n            <div class=\"modal-footer\">\n                <button class=\"btn btn-danger\">{{ \"{{ 'Yes'|trans({}, 'admin') }}\" }}</button>\n                <button class=\"btn btn-secondary\" data-dismiss=\"modal\">{{ \"{{ 'No'|trans({}, 'admin') }}\" }}</button>\n            </div>\n        </div>\n    </div>\n</div>\n{%- endif %}\n    \n\n\n\n\n{% if ('delete' in actions) and (not hide_delete) %}\n<form id=\"delete\" action=\"{{ \"{{ path('\"~ route_name_prefix ~\"_delete', {id: \"~ entity_singularized ~\".id}) }}\" }}\" method=\"post\">\n    {{ '{{ form_widget(delete_form) }}' }}\n{% endif %}\n\n    <div class=\"btn-group\">\n\n        <a class=\"btn btn-info\" href=\"{{ \"{{ path('\"~ route_name_prefix ~\"_index') }}\" }}\">\n            <i class=\"fa fa-list\"></i> Ir a la lista\n        </a>\n\n{% if ('edit' in actions) and (not hide_edit) %}\n        <a class=\"btn btn-primary\" href=\"{{ \"{{ path('\"~ route_name_prefix ~\"_edit', {id: \"~ entity|lower ~\".id}) }}\" }}\">\n            <i class=\"fa fa-edit\"></i> Editar\n        </a>\n{% endif %}\n\n{% if ('delete' in actions) and (not hide_delete) %}\n        <button class=\"btn btn-danger\" type=\"submit\"><i class=\"fa fa-trash-o\"></i> Borrar\" }}</button>\n{% endif %}\n\n    </div>\n\n{% if ('delete' in actions) and (not hide_delete) %}\n    <input name=\"modal\" type=\"hidden\" value=\"0\">\n</form>\n\n<div id=\"delete_confirm\" class=\"modal fade\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n                <h3>Eliminar registro</h3>\n            </div>\n            <div class=\"modal-body\">\n                <p>Está por borrar un registro. E</p>\n                <p>¿Desea continuar?</p>\n            </div>\n            <div class=\"modal-footer\">\n                <button class=\"btn btn-danger\">{{ \"{{ 'Yes'|trans({}, 'admin') }}\" }}</button>\n                <button class=\"btn btn-secondary\" data-dismiss=\"modal\">{{ \"{{ 'No'|trans({}, 'admin') }}\" }}</button>\n            </div>\n        </div>\n    </div>\n</div>\n{% endif %}\n\n",
+			"file": "Resources/skeleton/crud/views/others/record_actions.html.twig.twig",
+			"file_size": 3815,
+			"file_write_time": 130953880831424836,
+			"settings":
+			{
+				"buffer_size": 3638,
 				"line_ending": "Unix"
 			}
 		}
@@ -149,20 +144,20 @@
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud",
-		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/actions",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views",
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views/others",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/filter",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/form",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/views"
 	],
 	"file_history":
 	[
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/actions/new.php.twig",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/widget/fields.html.twig",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views/index.html.twig.twig",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views/filter.html.twig.twig",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/actions/index.php.twig",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/actions/sort.php.twig",
-		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/actions/new.php.twig",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/controller.php.twig",
 		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Resources/views/Persona/index.html.twig",
 		"/home/aleste/Proyectos/www/sgdoc/src/Aleste/GestionBundle/Controller/PersonaController.php",
@@ -355,7 +350,7 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 9,
 			"sheets":
 			[
 				{
@@ -364,46 +359,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1134,
+						"buffer_size": 1046,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1133,
-								1133
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/Seti_UI/Scheme/Seti.tmTheme",
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Resources/skeleton/crud/views/edit.html.twig.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1257,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								99,
-								99
+								980,
+								980
 							]
 						],
 						"settings":
@@ -418,6 +382,37 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Resources/skeleton/crud/views/edit.html.twig.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1095,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								760,
+								760
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Seti_UI/Scheme/Seti.tmTheme",
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -448,7 +443,7 @@
 						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -476,10 +471,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 170.0,
+						"translation.y": 136.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -510,7 +505,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -538,89 +533,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 459.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "Resources/skeleton/crud/actions/new.php.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1392,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/Seti_UI/Scheme/Seti.tmTheme",
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 153.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Resources/skeleton/crud/actions/show.php.twig",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 997,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/Seti_UI/Scheme/Seti.tmTheme",
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "Resources/skeleton/crud/views/show.html.twig.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3133,
+						"buffer_size": 3038,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1898,
-								1898
+								2980,
+								2980
 							]
 						],
 						"settings":
@@ -631,14 +564,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 170.0,
+						"translation.y": 408.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 7,
 					"file": "Resources/skeleton/crud/views/filter.html.twig.twig",
 					"semi_transient": false,
 					"settings":
@@ -664,24 +597,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 8,
 					"file": "Resources/skeleton/crud/views/index.html.twig.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5323,
+						"buffer_size": 5366,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1018,
-								960
+								4775,
+								4775
 							]
 						],
 						"settings":
@@ -691,7 +624,37 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1997.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Resources/skeleton/crud/views/others/record_actions.html.twig.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3638,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3256,
+								3256
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1139.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -991,7 +954,7 @@
 		[
 			[
 				"",
-				"~/Proyectos/www/proyectoBase/proyectoBase.sublime-workspace"
+				"~/Proyectos/www/sgdoc/sgdoc.sublime-project"
 			],
 			[
 				"aob",
