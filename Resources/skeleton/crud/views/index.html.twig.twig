@@ -32,7 +32,7 @@
 		              			
 		    					{% if 'new' in actions -%}
 			    
-		            			<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>        
+		            			<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Nuevo</a>        
 
 		    				{%- endif %}
 
@@ -111,6 +111,7 @@
 		           </div>            
 
 		            <div class="box-footer clearfix">
+		            	<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Nuevo</a>
 		            	{{ '{{ knp_pagination_render(pagination) }}' }}		              
 		            </div>
 		            

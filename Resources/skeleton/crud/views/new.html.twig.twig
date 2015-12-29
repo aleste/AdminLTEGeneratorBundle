@@ -10,13 +10,13 @@
                      <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Nuevo {{ entity }}</h3>
-                        </div>                        
+                        </div>
                         {{ '{{ form_start(form, {"attr":{"novalidate":"novalidate"}}) }}' }}
                         <div class="box-body">
         				{{ '{{ form_widget(form) }}' }}
         				</div>
-        				<div class="box-footer">        					
-        					<button type="submit" class="btn btn-primary btn-sm">Guardar</button>        	        	
+        				<div class="box-footer">
+        					<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Guardar</button>        	        	
     					{{ '{{ form_end(form) }}' }}
 
     					{% set hide_edit, hide_delete = true, true %}
