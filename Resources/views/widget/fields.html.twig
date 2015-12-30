@@ -27,6 +27,7 @@
 {% spaceless %}
     <div class="form-group">
         {% set type = type|default('text') %}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) %}
         <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
     </div>
 {% endspaceless %}
@@ -37,6 +38,18 @@
         <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
 {% endspaceless %}
 {% endblock textarea_widget %}
+
+{% block date_widget -%}
+    <div class="input-group date" data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-language="es">
+        
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' ')|trim}) %}
+        <input type="text"  {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+
+    <div class="input-group-addon">        
+        <i class="fa fa-calendar"></i>
+    </div>
+</div>
+{%- endblock date_widget %}
 
 {% block checkbox_widget %}
 {% spaceless %}

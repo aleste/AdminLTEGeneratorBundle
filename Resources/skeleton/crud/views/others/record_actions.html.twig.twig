@@ -1,4 +1,4 @@
-<a href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}" role="button" class="btn btn-default btn-sm"><i class="fa fa-list"></i> Ir a la lista</a>
+<a href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}" role="button" class="btn btn-default btn-sm"><i class="fa fa-times"></i> Cancelar</a>
 {%- if ('delete' in actions) and (not hide_delete) %}
   <p>
     {{ '{{ form_start(delete_form, {"attr":{"id":"delete"}}) }}' }}
