@@ -23,7 +23,7 @@
 			"file": "Resources/skeleton/crud/views/new.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 1036,
+				"buffer_size": 1115,
 				"line_ending": "Unix"
 			}
 		},
@@ -36,18 +36,26 @@
 			}
 		},
 		{
-			"file": "Resources/views/widget/fields.html.twig",
+			"file": "Resources/skeleton/form/FormType.php.twig",
 			"settings":
 			{
-				"buffer_size": 2705,
+				"buffer_size": 2579,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Resources/skeleton/form/FormType.php.twig",
+			"file": "Resources/skeleton/filter/FormFilterType.php.twig",
 			"settings":
 			{
-				"buffer_size": 2513,
+				"buffer_size": 3095,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Resources/views/widget/fields.html.twig",
+			"settings":
+			{
+				"buffer_size": 2612,
 				"line_ending": "Unix"
 			}
 		},
@@ -79,7 +87,7 @@
 			"file": "Resources/skeleton/crud/views/show.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 3038,
+				"buffer_size": 2725,
 				"line_ending": "Unix"
 			}
 		},
@@ -87,7 +95,7 @@
 			"file": "Resources/skeleton/crud/views/filter.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 1285,
+				"buffer_size": 1365,
 				"line_ending": "Unix"
 			}
 		},
@@ -361,7 +369,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -370,15 +378,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1036,
+						"buffer_size": 1115,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								147,
+								147
 							]
 						],
 						"settings":
@@ -392,7 +400,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -408,8 +416,8 @@
 						"selection":
 						[
 							[
-								988,
-								988
+								209,
+								209
 							]
 						],
 						"settings":
@@ -423,54 +431,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "Resources/views/widget/fields.html.twig",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2705,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1491,
-								1491
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 408.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "Resources/skeleton/form/FormType.php.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2513,
+						"buffer_size": 2579,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1602,
-								1602
+								885,
+								885
 							]
 						],
 						"settings":
@@ -481,14 +459,74 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 221.0,
+						"translation.y": 170.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Resources/skeleton/filter/FormFilterType.php.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3095,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								763,
+								763
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 289.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
+					"file": "Resources/views/widget/fields.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2612,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2099,
+								2104
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 612.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "Resources/skeleton/crud/actions/edit.php.twig",
 					"semi_transient": false,
 					"settings":
@@ -512,14 +550,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 136.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "Resources/skeleton/crud/actions/delete.php.twig",
 					"semi_transient": false,
 					"settings":
@@ -546,11 +584,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "Resources/skeleton/crud/actions/index.php.twig",
 					"semi_transient": false,
 					"settings":
@@ -577,24 +615,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "Resources/skeleton/crud/views/show.html.twig.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3038,
+						"buffer_size": 2725,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1102,
-								1102
+								124,
+								124
 							]
 						],
 						"settings":
@@ -612,20 +650,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "Resources/skeleton/crud/views/filter.html.twig.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1285,
+						"buffer_size": 1365,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								18,
+								18
 							]
 						],
 						"settings":
@@ -635,14 +673,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 51.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "Resources/skeleton/crud/views/index.html.twig.twig",
 					"semi_transient": false,
 					"settings":
@@ -665,14 +703,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 289.0,
+						"translation.y": 85.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "Resources/skeleton/crud/views/others/record_actions.html.twig.twig",
 					"semi_transient": false,
 					"settings":
@@ -698,7 +736,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 10,
 					"type": "text"
 				}
 			]

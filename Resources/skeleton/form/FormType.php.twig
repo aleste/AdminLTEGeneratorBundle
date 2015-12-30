@@ -28,13 +28,13 @@ class {{ form_class }} extends AbstractType
         {%- for field in fields -%}
             {%- if fields_mapping[field]['type'] in ['date', 'time', 'datetime'] %}
 
-                {%- if fields_mapping[field]['type'] in ['date', 'time', 'datetime'] %}
+                {%- if fields_mapping[field]['type'] in ['date'] %}
 
-                    ->add('{{ field }}', '{{ fields_mapping[field]['type'] }}', array('label' => '{{ field|capitalize }}', 'widget' => 'single_text', 'input'=>'datetime', 'format' => 'dd-MM-yyyy'))
+                ->add('{{ field }}', '{{ fields_mapping[field]['type'] }}', array('label' => '{{ field|capitalize }}', 'widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => array('data-provide' => 'datepicker', 'data-date-format' => 'dd-mm-yyyy', 'data-date-language' => 'es')))
 
                 {%- else -%}
                     
-                    ->add('{{ field }}', '{{ fields_mapping[field]['type'] }}', array('label' => '{{ field|capitalize }}'))
+                ->add('{{ field }}', '{{ fields_mapping[field]['type'] }}', array('label' => '{{ field|capitalize }}'))
 
                 {%- endif -%}
             

@@ -24,7 +24,6 @@ class {{ form_class }} extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
         {% for field in fields -%}
         {%- if fields_mapping[field]['type'] == 'relation' or fields_mapping[field]['type'] == 'relation_many' %}
 
@@ -36,8 +35,8 @@ class {{ form_class }} extends AbstractType
 
             ->add('{{ field }}', 'filter_number')
         {%- elseif fields_mapping[field]['type'] == 'date' or fields_mapping[field]['type'] == 'datetime' %}
-
-            ->add('{{ field }}', 'filter_date', array('label' => '{{ field|capitalize }}'))
+            
+            ->add('{{ field }}', 'filter_date', array('label' => '{{ field|capitalize }}', 'widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => array('data-provide' => 'datepicker', 'data-date-format' => 'dd-mm-yyyy', 'data-date-language' => 'es')))
         {%- elseif field != 'id' %}
 
             ->add('{{ field }}', 'filter_text', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
