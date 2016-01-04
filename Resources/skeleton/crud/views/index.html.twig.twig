@@ -20,37 +20,27 @@
 
 {{ "{% from _self import thead %}" }}	
 {{ "{% block body %}" }}
-
-			<div class="row">
-        		<div class="col-md-12">
-					<div class="box">
-						<div class="box-header">
-		              		<h3 class="box-title">{{ entity }}</h3>
-		              		<div class="box-tools">
-		              					              			
-		              			{{ include('crud/views/filter.html.twig.twig') -}}
-		              			
-		    					{% if 'new' in actions -%}
-			    
-		            			<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Nuevo</a>        
-
-		    				{%- endif %}
-
-
-		              		</div>
-		            	</div>            
-		            <div class="box-body table-responsive no-padding">
-		              <table class="table table-bordered table-hover table-striped">
-		            <tr>
-		            {%- for field, metadata in fields %}
-		                
-		                <th>{{ "{{ thead('" ~ entity|lower ~"', '"~ field ~"', '"~ field|replace({'_': ' '})|capitalize ~"') }}" }}</th>
-
-		            {%- endfor %}
-
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">{{ entity }}</h3>
+					<div class="box-tools">
+					{{ "{% include '"~ route_name_prefix ~"/filter.html.twig' with {form: form} %}" }}	
+					{% if 'new' in actions -%}			    
+						<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Nuevo</a>
+					{%- endif %}
+					</div>
+            	</div>            
+				<div class="box-body table-responsive no-padding">
+					<table class="table table-bordered table-hover table-striped">
+						<tr>
+						{%- for field, metadata in fields %}		                
+		                	<th>{{ "{{ thead('" ~ entity|lower ~"', '"~ field ~"', '"~ field|replace({'_': ' '})|capitalize ~"') }}" }}</th>
+		            	{%- endfor %}
 		                <th>Acciones</th>
-		            </tr>              
-					{{ '{% for ' ~ entity_singularized ~ ' in pagination %}' }}
+		            	</tr>              
+						{{ '{% for ' ~ entity_singularized ~ ' in pagination %}' }}
 				        <tr>
 				        {%- for field, metadata in fields %}
 				            {%- if loop.first and ('show' in actions) %}
@@ -99,7 +89,7 @@
 				                            <a class="btn btn-default btn-sm" href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}"><i class="fa {{iconBtn}}"></i>&nbsp;{{ textBtn }}</a>		                        
 				                    {%- endfor %}
 		                    		
-		                  		</div>		                    
+		                  			</div>		                    
 				                </td>
 
 				            {%- endif %}
@@ -111,14 +101,12 @@
 		           </div>            
 
 		            <div class="box-footer clearfix">
-		            	<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Nuevo</a>
+						<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Nuevo</a>
 		            	{{ '{{ knp_pagination_render(pagination) }}' }}		              
-		            </div>
-		            
-		          </div>
-
-		    </div>
-        </div>
+		            </div>		           
+			</div>
+	    </div>
+	</div>
 
 {{ "{% endblock %}" }}
 {% endblock body %}

@@ -26,7 +26,11 @@
 
 {% block form_widget_simple %}
 {% spaceless %}
-    <div class="form-group">
+     {% set errorClass = "" %} 
+     {% if errors|length > 0 %}
+        {% set errorClass = "has-error" %}   
+     {% endif %}
+    <div class="form-group {{errorClass}}">
         {% set type = type|default('text') %}
         {% set attr = attr|merge({class: (attr.class|default('') ~ '')|trim}) %}
         <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
@@ -65,12 +69,12 @@
 
 {% block form_errors %}
     {% spaceless %}
-        {% if errors|length > 0 %}
-        <ul class="list-unstyled">
-            {% for error in errors %}
-                <li class="form-error-li">{{ error.message }}</li>
+        {% if errors|length > 0 %}   
+            <br>     
+            {% for error in errors %}                
+                <label class="label-error" for="inputError"><i class="fa fa-times-circle-o"></i> {{ error.message }}</label>
             {% endfor %}
-        </ul>
+        
         {% endif %}
     {% endspaceless %}
 {% endblock form_errors %}

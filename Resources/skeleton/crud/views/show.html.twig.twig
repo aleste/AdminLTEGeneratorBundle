@@ -4,67 +4,59 @@
 
 {% block body %}
 {{ "{% block body %}" }}
+<div class="row">
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">{{ entity }}</h3>
+            </div>            
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-bordered table-hover table-striped">
+                    {%- for field, metadata in fields %}
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">{{ entity }}</h3>
-                </div>            
-                <div class="box-body table-responsive no-padding">
-                  <table class="table table-bordered table-hover table-striped">
-                        {%- for field, metadata in fields %}
+                    <tr>
+                        <th>{{ field|capitalize }}</th>
 
-                        <tr>
-                            <th>{{ field|capitalize }}</th>
+                    {%- if metadata.type in ['datetime'] %}
 
-                        {%- if metadata.type in ['datetime'] %}
+                        <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
 
-                            <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+                    {%- elseif metadata.type in ['date'] %}
 
-                        {%- elseif metadata.type in ['date'] %}
+                        <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'d-m-Y\') }}{% endif %}' }}</td>
 
-                            <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'d-m-Y\') }}{% endif %}' }}</td>
+                    {%- elseif metadata.type in ['time'] %}
 
-                        {%- elseif metadata.type in ['time'] %}
+                        <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'H:i:s\') }}{% endif %}' }}</td>
 
-                            <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'H:i:s\') }}{% endif %}' }}</td>
+                    {%- elseif metadata.type in ['array'] %}
 
-                        {%- elseif metadata.type in ['array'] %}
+                        <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|join(\', \') }}{% endif %}' }}</td>
 
-                            <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|join(\', \') }}{% endif %}' }}</td>
+                    {%- elseif metadata.type in ['boolean'] %}
 
-                        {%- elseif metadata.type in ['boolean'] %}
+                        <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}Si{% else %}No{% endif %}' }}</td>
 
-                            <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}Si{% else %}No{% endif %}' }}</td>
+                    {%- else %}
 
-                        {%- else %}
+                        <td>{{ '{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
 
-                            <td>{{ '{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+                    {%- endif %}
 
-                        {%- endif %}
+                    </tr>
 
-                        </tr>
+                {%- endfor %} 
 
-                    {%- endfor %} 
-
-                    </table>
-                </div>
-                <div class="box-footer clearfix">
-              <ul class="pagination pagination-sm no-margin">                       
-                    
-                {% set hide_edit, hide_delete = false, false %}
-                {{ include('crud/views/others/record_actions.html.twig.twig') -}}
-
-                
-
-              </ul>
+                </table>
             </div>
-
+            <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin">                                       
+            {% set hide_edit, hide_delete = false, false %}
+            {{ include('crud/views/others/record_actions.html.twig.twig') -}}    
+                </ul>
             </div>
         </div>
     </div>
-             
-
+</div>
 {{ "{% endblock %}" }}
 {% endblock body %}

@@ -5,28 +5,24 @@
 {% block body %}
 {{ "{% block body %}" }}
 {{ "{% form_theme form 'AdminLTEGeneratorBundle:widget:fields.html.twig' %}" }}
-            <div class="row">
-                <div class="col-md-6">
-                     <div class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">Nuevo {{ entity }}</h3>
-                        </div>
-                        {{ '{{ form_start(form, {"attr":{"novalidate":"novalidate"}}) }}' }}
-                        <div class="box-body">
-        				{{ '{{ form_widget(form) }}' }}
-        				</div>
-        				<div class="box-footer">
-        					<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Guardar</button>        	        	
-    					{{ '{{ form_end(form) }}' }}
-
-    					{% set hide_edit, hide_delete = true, true %}
-
-						{{ include('crud/views/others/record_actions.html.twig.twig') -}}
-
-						</div>
-					</div>
-				</div>
+<div class="row">
+    <div class="col-md-6">
+         <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Nuevo {{ entity }}</h3>
+            </div>
+            {{ '{{ form_start(form, {"attr":{"novalidate":"novalidate"}}) }}' }}
+            <div class="box-body">
+			{{ '{{ form_widget(form) }}' }}
 			</div>
-
+			<div class="box-footer">
+				<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Guardar</button>        	        	
+			{{ '{{ form_end(form) }}' }}
+			{% set hide_edit, hide_delete = true, true %}
+			{{ include('crud/views/others/record_actions.html.twig.twig') -}}
+			</div>
+		</div>
+	</div>
+</div>
 {{ "{% endblock %}" }}
 {% endblock body %}
