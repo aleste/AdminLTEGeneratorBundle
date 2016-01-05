@@ -172,7 +172,7 @@ EOT
         }
 
         // write?
-        $withWrite = $input->getOption('with-write') ?: false;
+        $withWrite = $input->getOption('with-write') ?: true;
         $output->writeln(array(
             '',
             'By default, the generator creates two actions: list and show.',
