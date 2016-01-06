@@ -28,7 +28,7 @@
 					<div class="box-tools">
 					{{ "{% include '"~ route_name_prefix ~"/filter.html.twig' with {form: form} %}" }}	
 					{% if 'new' in actions -%}			    
-						<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Nuevo</a>
+						<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm btn-flat"><i class="fa fa-plus"></i> Nuevo</a>
 					{%- endif %}
 					</div>
             	</div>            
@@ -86,7 +86,7 @@
 				                				{% set iconBtn = 'fa-eye' %}		
 				                				{% set textBtn = 'Ver' %}                	                					
 				                			{% endif %}		                       
-				                            <a class="btn btn-default btn-sm" href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}"><i class="fa {{iconBtn}}"></i>&nbsp;{{ textBtn }}</a>		                        
+				                            <a class="btn btn-default btn-sm btn-flat" href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}"><i class="fa {{iconBtn}}"></i>&nbsp;{{ textBtn }}</a>		                        
 				                    {%- endfor %}
 		                    		
 		                  			</div>		                    
@@ -101,7 +101,7 @@
 		           </div>            
 
 		            <div class="box-footer clearfix">
-						<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Nuevo</a>
+						<a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}" class="btn btn-default btn-sm btn-flat"><i class="fa fa-plus"></i> Nuevo</a>
 		            	{{ '{{ knp_pagination_render(pagination) }}' }}		              
 		            </div>		           
 			</div>

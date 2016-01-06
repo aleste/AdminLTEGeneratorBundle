@@ -16,7 +16,7 @@
         {{ '{{ form_widget(edit_form) }}' }}
         </div>
         <div class="box-footer">
-          <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Guardar</button>
+          <button type="submit" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-save"></i> Guardar</button>
           {{ '{{ form_end(edit_form) }}' }}
           {% set hide_edit, hide_delete = true, false %}
           {{ include('crud/views/others/record_actions.html.twig.twig') -}}

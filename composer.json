@@ -1,6 +1,6 @@
 {
     "name": "aleste/adminlte-generator-bundle",
-    "description": "This bundle generates code for you",
+    "description": "Crud generator with adminlte theme",
     "keywords": [],
     "type": "symfony-bundle",
     "license": "MIT",

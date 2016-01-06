@@ -1,4 +1,4 @@
-<a href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}" role="button" class="btn btn-default btn-sm"><i class="fa fa-times"></i> Cancelar</a>
+<a href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}" role="button" class="btn btn-default btn-sm btn-flat"><i class="fa fa-times"></i> Cancelar</a>
 
 {%- if ('delete' in actions) and (not hide_delete) %}
   <p>
@@ -6,11 +6,11 @@
 {%- endif %}
 
 {%- if ('edit' in actions) and (not hide_edit) %}
-    <a href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}" role="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Editar</a>
+    <a href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}" role="button" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-edit"></i> Editar</a>
 {%- endif %}
 
 {%- if ('delete' in actions) and (not hide_delete) %}
-    <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash-o"></i> Borrar</button>
+    <button class="btn btn-danger btn-sm btn-flat" type="submit"><i class="fa fa-trash-o"></i> Borrar</button>
   </p>
 {% endif %}
 
@@ -28,8 +28,8 @@
                 <p>¿Desea continuar?</p>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-danger">Si, borrar</button>
-                <button class="btn btn-secondary" data-dismiss="modal">No, cancelar</button>
+                <button class="btn btn-danger btn-flat">Si, borrar</button>
+                <button class="btn btn-secondary btn-flat" data-dismiss="modal">No, cancelar</button>
             </div>
         </div>
     </div>
