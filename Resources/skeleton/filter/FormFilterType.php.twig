@@ -27,10 +27,10 @@ class {{ form_class }} extends AbstractType
         {% for field, metadata in fields -%}
         {%- if metadata.type == 'relation' or metadata.type == 'relation_many' %}
 
-            ->add('{{ field }}', 'filter_entity', array('label' => '{{ field|capitalize }}', 'class' => '{{ metadata.entity }}', 'attr' => array('class' => 'form-control')))
+            ->add('{{ field }}', 'filter_entity', array('label' => '{{ field|capitalize }}', 'class' => '{{ metadata.entity }}', 'attr' => array('style' => '100%;')))
         {%- elseif metadata.type == 'boolean' %}
 
-            ->add('{{ field }}', 'filter_boolean', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
+            ->add('{{ field }}', 'filter_boolean', array('label' => '{{ field|capitalize }}'))
         {%- elseif metadata.type == 'integer' and field != 'id' %}
 
             ->add('{{ field }}', 'filter_number')
@@ -39,7 +39,7 @@ class {{ form_class }} extends AbstractType
             ->add('{{ field }}', 'filter_date', array('label' => '{{ field|capitalize }}'))
         {%- elseif field != 'id' %}
 
-            ->add('{{ field }}', 'filter_text', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
+            ->add('{{ field }}', 'filter_text', array('label' => '{{ field|capitalize }}'))
         {%- endif %}
         {%- endfor %}
         
