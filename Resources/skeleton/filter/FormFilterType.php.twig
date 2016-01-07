@@ -24,25 +24,25 @@ class {{ form_class }} extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        {% for field in fields -%}
-        {%- if fields_mapping[field]['type'] == 'relation' or fields_mapping[field]['type'] == 'relation_many' %}
+        {% for field, metadata in fields -%}
+        {%- if metadata.type == 'relation' or metadata.type == 'relation_many' %}
 
             ->add('{{ field }}', 'filter_entity', array('label' => '{{ field|capitalize }}', 'class' => '{{ metadata.entity }}', 'attr' => array('class' => 'form-control')))
-        {%- elseif fields_mapping[field]['type'] == 'boolean' %}
+        {%- elseif metadata.type == 'boolean' %}
 
             ->add('{{ field }}', 'filter_boolean', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
-        {%- elseif fields_mapping[field]['type'] == 'integer' and field != 'id' %}
+        {%- elseif metadata.type == 'integer' and field != 'id' %}
 
             ->add('{{ field }}', 'filter_number')
-        {%- elseif fields_mapping[field]['type'] == 'date' or fields_mapping[field]['type'] == 'datetime' %}
-            
-            ->add('{{ field }}', 'filter_date', array('label' => '{{ field|capitalize }}', 'widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => array('data-provide' => 'datepicker', 'data-date-format' => 'dd-mm-yyyy', 'data-date-language' => 'es')))
+        {%- elseif metadata.type == 'date' or metadata.type == 'datetime' %}
+
+            ->add('{{ field }}', 'filter_date', array('label' => '{{ field|capitalize }}'))
         {%- elseif field != 'id' %}
 
             ->add('{{ field }}', 'filter_text', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
         {%- endif %}
         {%- endfor %}
-
+        
         ;
     }
     {% endif %}

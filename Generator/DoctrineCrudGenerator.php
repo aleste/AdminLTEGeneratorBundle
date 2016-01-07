@@ -21,6 +21,7 @@ use Sensio\Bundle\GeneratorBundle\Generator\Generator;
  * Generates a CRUD controller.
  *
  * @author Fabien Potencier <fabien@symfony.com>
+ * @author Alejandro Steinmetz <asteinmetz78@gmail.com>
  */
 class DoctrineCrudGenerator extends Generator
 {

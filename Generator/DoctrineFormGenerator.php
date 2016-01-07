@@ -21,6 +21,7 @@ use Sensio\Bundle\GeneratorBundle\Generator\Generator as Generator;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Hugo Hamon <hugo.hamon@sensio.com>
+ * @author Alejandro Steinmetz <asteinmetz78@gmail.com>
  */
 class DoctrineFormGenerator extends Generator
 {
@@ -123,46 +124,39 @@ class DoctrineFormGenerator extends Generator
         array_pop($parts);
 
         $this->renderFile('filter/FormFilterType.php.twig', $this->classPath, array(
-            'fields' => $this->getFieldsFromMetadata($metadata),
-            'fields_mapping' => $metadata->fieldMappings,
-            'namespace' => $bundle->getNamespace(),
+            'bundle'           => $bundle->getName(),
+            'fields'           => $this->getFieldsFromMetadata($metadata),
+            'namespace'        => $bundle->getNamespace(),
+            'bundle_namespace' => $bundle->getNamespace(),
             'entity_namespace' => implode('\\', $parts),
-            'entity_class' => $entityClass,
-            'bundle' => $bundle->getName(),
-            'form_class' => $this->className,
-            'form_type_name' => strtolower(str_replace('\\', '_', $bundle->getNamespace()).($parts ? '_' : '').implode('_', $parts).'_'.substr($this->className, 0, -4)),
-
-            // Add 'setDefaultOptions' method with deprecated type hint, if the new 'configureOptions' isn't available.
-            // Required as long as Symfony 2.6 is supported.
+            'entity_class'     => $entityClass,
+            'form_class'       => $this->className,
+            'form_type_name'   => strtolower(str_replace('\\', '_', $bundle->getNamespace()).($parts ? '_' : '').implode('_', $parts).'_'.$this->className),
             'configure_options_available' => method_exists('Symfony\Component\Form\AbstractType', 'configureOptions'),
             'get_name_required' => !method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix'),
         ));
+        
     }        
 
-    /**
-     * Returns an array of fields. Fields can be both column fields and
-     * association fields.
-     *
-     * @param ClassMetadataInfo $metadata
-     *
-     * @return array $fields
-     */
     private function getFieldsFromMetadata(ClassMetadataInfo $metadata)
-    {
-        $fields = (array) $metadata->fieldNames;
+    {        
+     
+        $fields = (array) $metadata->fieldMappings;  
 
-        // Remove the primary key field if it's not managed manually
-        if (!$metadata->isIdentifierNatural()) {
-            $fields = array_diff($fields, $metadata->identifier);
-        }
+
 
         foreach ($metadata->associationMappings as $fieldName => $relation) {
             if ($relation['type'] !== ClassMetadataInfo::ONE_TO_MANY) {
-                $fields[] = $fieldName;
+                if ($relation['type'] === ClassMetadataInfo::MANY_TO_MANY) {
+                    $fields[$fieldName] = array('type' => 'relation_many', 'entity' => $relation['targetEntity']);
+                } else {
+                    $fields[$fieldName] = array('type' => 'relation', 'entity' => $relation['targetEntity']);
+                }
             }
         }
 
+
         return $fields;
-    }
+    }    
 
 }

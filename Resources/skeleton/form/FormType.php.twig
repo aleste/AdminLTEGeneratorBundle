@@ -24,26 +24,25 @@ class {{ form_class }} extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        {% for field, metadata in fields -%}
+        {%- if field is defined and metadata.type in ['date', 'time', 'datetime'] %}
+        {%- if metadata.type == 'date' %}
 
-        {%- for field in fields -%}
-            {%- if fields_mapping[field]['type'] in ['date', 'time', 'datetime'] %}
+            ->add('{{ field }}', '{{ metadata.type }}', array('label' => '{{ field|capitalize }}', 'widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => array('data-provide' => 'datepicker', 'data-date-format' => 'dd-mm-yyyy', 'data-date-language' => 'es')))
+        {%- else %}
 
-                {%- if fields_mapping[field]['type'] in ['date'] %}
+            ->add('{{ field }}', '{{ metadata.type }}', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
+        {%- endif %}
 
-                ->add('{{ field }}', '{{ fields_mapping[field]['type'] }}', array('label' => '{{ field|capitalize }}', 'widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => array('data-provide' => 'datepicker', 'data-date-format' => 'dd-mm-yyyy', 'data-date-language' => 'es')))
+        {%- elseif field != 'id' %}
+        {%- if metadata.type in ['relation', 'relation_many'] %}
 
-                {%- else -%}
-                    
-                ->add('{{ field }}', '{{ fields_mapping[field]['type'] }}', array('label' => '{{ field|capitalize }}'))
-
-                {%- endif -%}
-            
-            {%- else %}
-                
-                ->add('{{ field }}', null, array('label' => '{{ field|capitalize }}'))
-                
-
-            {%- endif -%}
+            ->add('{{ field }}', null, array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
+        {%- else %}
+        
+            ->add('{{ field }}', null, array('label' => '{{ field|capitalize }}'))
+        {%- endif %}    
+        {%- endif %}
         {%- endfor %}
 
         ;
