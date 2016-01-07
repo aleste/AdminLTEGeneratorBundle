@@ -27,7 +27,7 @@ class {{ form_class }} extends AbstractType
         {% for field, metadata in fields -%}
         {%- if metadata.type == 'relation' or metadata.type == 'relation_many' %}
 
-            ->add('{{ field }}', 'filter_entity', array('label' => '{{ field|capitalize }}', 'class' => '{{ metadata.entity }}', 'attr' => array('style' => '100%;')))
+            ->add('{{ field }}', 'filter_entity', array('label' => '{{ field|capitalize }}', 'class' => '{{ metadata.entity }}'))
         {%- elseif metadata.type == 'boolean' %}
 
             ->add('{{ field }}', 'filter_boolean', array('label' => '{{ field|capitalize }}'))
