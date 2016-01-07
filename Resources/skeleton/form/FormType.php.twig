@@ -31,13 +31,13 @@ class {{ form_class }} extends AbstractType
             ->add('{{ field }}', '{{ metadata.type }}', array('label' => '{{ field|capitalize }}', 'widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => array('data-provide' => 'datepicker', 'data-date-format' => 'dd-mm-yyyy', 'data-date-language' => 'es')))
         {%- else %}
 
-            ->add('{{ field }}', '{{ metadata.type }}', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
+            ->add('{{ field }}', '{{ metadata.type }}', array('label' => '{{ field|capitalize }}', 'attr' => array('class' => '')))
         {%- endif %}
 
         {%- elseif field != 'id' %}
         {%- if metadata.type in ['relation', 'relation_many'] %}
 
-            ->add('{{ field }}', null, array('label' => '{{ field|capitalize }}', 'attr' => array('class' => 'form-control')))
+            ->add('{{ field }}', null, array('label' => '{{ field|capitalize }}', 'attr' => array('class' => '')))
         {%- else %}
         
             ->add('{{ field }}', null, array('label' => '{{ field|capitalize }}'))
