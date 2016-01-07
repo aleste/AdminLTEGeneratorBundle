@@ -70,10 +70,11 @@
 {% block form_errors %}
     {% spaceless %}
         {% if errors|length > 0 %}   
-            <br>     
+            <ul class="list-unstyled">   
             {% for error in errors %}                
-                <label class="label-error" for="inputError"><i class="fa fa-times-circle-o"></i> {{ error.message }}</label>
+                <li><label class="label-error" for="inputError"><i class="fa fa-times-circle-o"></i> {{ error.message }}</label></li>
             {% endfor %}
+            </ul>
         
         {% endif %}
     {% endspaceless %}
