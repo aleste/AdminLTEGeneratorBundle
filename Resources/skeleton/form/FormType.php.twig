@@ -28,19 +28,34 @@ class {{ form_class }} extends AbstractType
         {%- if field is defined and metadata.type in ['date', 'time', 'datetime'] %}
         {%- if metadata.type == 'date' %}
 
-            ->add('{{ field }}', '{{ metadata.type }}', ['label' => '{{ field|capitalize }}', 'widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => ['data-provide' => 'datepicker', 'data-date-format' => 'dd-mm-yyyy', 'data-date-language' => 'es']])
+            ->add('{{ field }}', '{{ metadata.type }}', [
+                'label' => '{{ field|capitalize }}',
+                'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'attr' => [
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'dd-mm-yyyy',
+                    'data-date-language' => 'es'
+                ]
+            ])
         {%- else %}
 
-            ->add('{{ field }}', '{{ metadata.type }}', ['label' => '{{ field|capitalize }}', 'attr' => ['class' => '']])
+            ->add('{{ field }}', '{{ metadata.type }}', [
+                'label' => '{{ field|capitalize }}'
+            ])
         {%- endif %}
 
         {%- elseif field != 'id' %}
         {%- if metadata.type in ['relation', 'relation_many'] %}
 
-            ->add('{{ field }}', null, ['label' => '{{ field|capitalize }}', 'attr' => ['class' => '']])
+            ->add('{{ field }}', null, [
+                'label' => '{{ field|capitalize }}'
+            ])
         {%- else %}
         
-            ->add('{{ field }}', null, ['label' => '{{ field|capitalize }}'])
+            ->add('{{ field }}', null, [
+                'label' => '{{ field|capitalize }}'
+            ])
         {%- endif %}    
         {%- endif %}
         {%- endfor %}
