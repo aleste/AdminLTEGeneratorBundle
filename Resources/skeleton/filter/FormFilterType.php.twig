@@ -42,7 +42,14 @@ class {{ form_class }} extends AbstractType
         {%- elseif metadata.type == 'date' or metadata.type == 'datetime' %}
 
             ->add('{{ field }}', 'filter_date', [
-                'label' => '{{ field|capitalize }}'
+                'label' => '{{ field|capitalize }}',
+                'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'attr' => [
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'dd-mm-yyyy',
+                    'data-date-language' => 'es'
+                ]
             ])
         {%- elseif field != 'id' %}
 

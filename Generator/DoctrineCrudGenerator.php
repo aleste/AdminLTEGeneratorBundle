@@ -100,6 +100,7 @@ class DoctrineCrudGenerator extends Generator
             $this->generateEditView($dir);
         }
 
+        $this->generateModalDeleteView($dir);
         $this->generateFilterView($dir);
 
         $this->generateTestClass();
@@ -309,6 +310,16 @@ class DoctrineCrudGenerator extends Generator
             'route_prefix' => $this->routePrefix,
             'route_name_prefix' => $this->routeNamePrefix,
         ));
+    }
+
+    /**
+     * Generates the _modal_delete.html.twig template in the final bundle.
+     *
+     * @param string $dir The path to the folder that hosts templates in the bundle
+     */
+    protected function generateModalDeleteView($dir)
+    {
+        $this->renderFile('crud/views/others/modal_delete.html.twig.twig', $dir.'/_modal_delete.html.twig', array());
     }    
 
     /**
