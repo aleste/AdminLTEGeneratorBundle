@@ -110,3 +110,16 @@
         {% endif %}
     {% endspaceless %}
 {% endblock form_errors %}
+
+{%- block hidden_widget -%}
+{% spaceless %}        
+    {%- set type = type|default('hidden') -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ '')|trim}) %}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>    
+{% endspaceless %}
+{%- endblock hidden_widget -%}
+
+
+
+
+
