@@ -5,6 +5,7 @@ namespace {{ namespace }}\Form{{ entity_namespace ? '\\' ~ entity_namespace : ''
 {% block use_statements %}
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Lexik\Bundle\FormFilterBundle\Filter\Form\Type as Filters;
 {% if not configure_options_available %}
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 {% endif %}
@@ -27,21 +28,21 @@ class {{ form_class }} extends AbstractType
         {% for field, metadata in fields -%}
         {%- if metadata.type == 'relation' or metadata.type == 'relation_many' %}
 
-            ->add('{{ field }}', 'filter_entity', [
+            ->add('{{ field }}', Filters\EntityFilterType::class, [
                 'label' => '{{ field|capitalize }}',
                 'class' => '{{ metadata.entity }}'
             ])
         {%- elseif metadata.type == 'boolean' %}
 
-            ->add('{{ field }}', 'filter_boolean', [
+            ->add('{{ field }}', Filters\BooleanFilterType::class, [
                 'label' => '{{ field|capitalize }}'
             ])
         {%- elseif metadata.type == 'integer' and field != 'id' %}
 
-            ->add('{{ field }}', 'filter_number')
+            ->add('{{ field }}', Filters\NumberFilterType::class)
         {%- elseif metadata.type == 'date' or metadata.type == 'datetime' %}
 
-            ->add('{{ field }}', 'filter_date', [
+            ->add('{{ field }}', Filters\DateFilterType::class, [
                 'label' => '{{ field|capitalize }}',
                 'widget' => 'single_text',
                 'format' => 'dd-MM-yyyy',
@@ -53,7 +54,7 @@ class {{ form_class }} extends AbstractType
             ])
         {%- elseif field != 'id' %}
 
-            ->add('{{ field }}', 'filter_text', [
+            ->add('{{ field }}', Filters\TextFilterType::class, [
                 'label' => '{{ field|capitalize }}'
             ])
         {%- endif %}

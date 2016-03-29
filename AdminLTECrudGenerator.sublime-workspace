@@ -23,7 +23,7 @@
 			"file": "Resources/skeleton/crud/views/new.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 952,
+				"buffer_size": 961,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,7 +31,7 @@
 			"file": "Resources/skeleton/crud/views/edit.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 988,
+				"buffer_size": 997,
 				"line_ending": "Unix"
 			}
 		},
@@ -39,7 +39,7 @@
 			"file": "Resources/skeleton/form/FormType.php.twig",
 			"settings":
 			{
-				"buffer_size": 2579,
+				"buffer_size": 2861,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +47,7 @@
 			"file": "Resources/skeleton/filter/FormFilterType.php.twig",
 			"settings":
 			{
-				"buffer_size": 3095,
+				"buffer_size": 3110,
 				"line_ending": "Unix"
 			}
 		},
@@ -55,7 +55,7 @@
 			"file": "Resources/views/widget/fields.html.twig",
 			"settings":
 			{
-				"buffer_size": 2966,
+				"buffer_size": 4918,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,7 +63,18 @@
 			"file": "composer.json",
 			"settings":
 			{
-				"buffer_size": 703,
+				"buffer_size": 701,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "UPGRADE FROM 2.1 to 3.0\n=======================\n\n#### Update way to add a condition by using the `apply_filter` option.\n\nNow the callable defined by this option have to return a condition object (or null).\nYou can create this object by using the new `createCondition()` method from the $query object passed to the callable.\nThe callable should not add the condition to the doctrine query builder itself.\n\nBefore:\n\n```php\n$builder->add('name', 'filter_text', array(\n    'apply_filter' => function (QueryInterface $filterQuery, $field, $values) {\n        if (!empty($values['value'])) {\n            $qb = $filterQuery->getQueryBuilder();\n            $qb->andWhere($filterQuery->getExpr()->eq($field, $values['value']));\n        }\n    },\n));\n```\n\nAfter:\n\n```php\n$builder->add('name', 'filter_text', array(\n    'apply_filter' => function (QueryInterface $filterQuery, $field, $values) {\n        if (!empty($values['value']) {\n            $paramName = sprintf('p_%s', str_replace('.', '_', $field));\n\n            // expression\n            $expression = $filterQuery->getExpr()->eq($field, ':'.$paramName);\n\n            // parameters\n            $parameters = array(\n                $paramName => array($values['value'], \\PDO::PARAM_STR), // name => [value, type]\n                // OR\n                // $paramName => $values['value'] // name => value\n            );\n\n            return $filterQuery->createCondition($expression, $parameters);\n        }\n\n        return null;\n    },\n));\n```",
+			"file": "vendor/lexik/form-filter-bundle/UPGRADE-3.0.md",
+			"file_size": 1485,
+			"file_write_time": 131037617179471073,
+			"settings":
+			{
+				"buffer_size": 1485,
 				"line_ending": "Unix"
 			}
 		},
@@ -79,7 +90,7 @@
 			"file": "Resources/skeleton/crud/actions/delete.php.twig",
 			"settings":
 			{
-				"buffer_size": 2009,
+				"buffer_size": 2023,
 				"line_ending": "Unix"
 			}
 		},
@@ -87,7 +98,7 @@
 			"file": "Resources/skeleton/crud/actions/index.php.twig",
 			"settings":
 			{
-				"buffer_size": 1456,
+				"buffer_size": 1368,
 				"line_ending": "Unix"
 			}
 		},
@@ -95,7 +106,7 @@
 			"file": "Resources/skeleton/crud/views/show.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 2572,
+				"buffer_size": 2653,
 				"line_ending": "Unix"
 			}
 		},
@@ -103,7 +114,7 @@
 			"file": "Resources/skeleton/crud/views/filter.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 1365,
+				"buffer_size": 1392,
 				"line_ending": "Unix"
 			}
 		},
@@ -111,7 +122,7 @@
 			"file": "Resources/skeleton/crud/views/index.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 5323,
+				"buffer_size": 5431,
 				"line_ending": "Unix"
 			}
 		},
@@ -119,7 +130,7 @@
 			"file": "Resources/skeleton/crud/views/others/record_actions.html.twig.twig",
 			"settings":
 			{
-				"buffer_size": 1633,
+				"buffer_size": 941,
 				"line_ending": "Unix"
 			}
 		}
@@ -169,7 +180,6 @@
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud",
-		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views/others",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/filter",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/form",
@@ -386,7 +396,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 952,
+						"buffer_size": 961,
 						"regions":
 						{
 						},
@@ -408,7 +418,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -417,15 +427,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 988,
+						"buffer_size": 997,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								209,
-								209
+								0,
+								0
 							]
 						],
 						"settings":
@@ -439,7 +449,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -448,15 +458,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2579,
+						"buffer_size": 2861,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								885,
-								885
+								0,
+								0
 							]
 						],
 						"settings":
@@ -470,7 +480,7 @@
 						"translation.y": 170.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -479,15 +489,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3095,
+						"buffer_size": 3110,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								763,
-								763
+								0,
+								0
 							]
 						],
 						"settings":
@@ -500,7 +510,7 @@
 						"translation.y": 289.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -509,7 +519,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2966,
+						"buffer_size": 4918,
 						"regions":
 						{
 						},
@@ -530,7 +540,7 @@
 						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -539,15 +549,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 703,
+						"buffer_size": 701,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								601,
-								601
+								15,
+								47
 							]
 						],
 						"settings":
@@ -565,6 +575,36 @@
 				},
 				{
 					"buffer": 6,
+					"file": "vendor/lexik/form-filter-bundle/UPGRADE-3.0.md",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "Resources/skeleton/crud/actions/edit.php.twig",
 					"semi_transient": false,
 					"settings":
@@ -591,47 +631,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Resources/skeleton/crud/actions/delete.php.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2009,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/Seti_UI/Scheme/Seti.tmTheme",
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "Resources/skeleton/crud/actions/index.php.twig",
+					"file": "Resources/skeleton/crud/actions/delete.php.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1456,
+						"buffer_size": 2023,
 						"regions":
 						{
 						},
@@ -653,16 +662,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
 					"buffer": 9,
-					"file": "Resources/skeleton/crud/views/show.html.twig.twig",
+					"file": "Resources/skeleton/crud/actions/index.php.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2572,
+						"buffer_size": 1368,
 						"regions":
 						{
 						},
@@ -684,24 +693,55 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
 					"buffer": 10,
-					"file": "Resources/skeleton/crud/views/filter.html.twig.twig",
+					"file": "Resources/skeleton/crud/views/show.html.twig.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1365,
+						"buffer_size": 2653,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18,
-								18
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Seti_UI/Scheme/Seti.tmTheme",
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "Resources/skeleton/crud/views/filter.html.twig.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1392,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -714,16 +754,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "Resources/skeleton/crud/views/index.html.twig.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5323,
+						"buffer_size": 5431,
 						"regions":
 						{
 						},
@@ -744,16 +784,16 @@
 						"translation.y": 85.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "Resources/skeleton/crud/views/others/record_actions.html.twig.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1633,
+						"buffer_size": 941,
 						"regions":
 						{
 						},
@@ -774,7 +814,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
