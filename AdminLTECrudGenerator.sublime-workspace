@@ -47,7 +47,7 @@
 			"file": "Resources/skeleton/filter/FormFilterType.php.twig",
 			"settings":
 			{
-				"buffer_size": 3110,
+				"buffer_size": 3253,
 				"line_ending": "Unix"
 			}
 		},
@@ -64,17 +64,6 @@
 			"settings":
 			{
 				"buffer_size": 701,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "UPGRADE FROM 2.1 to 3.0\n=======================\n\n#### Update way to add a condition by using the `apply_filter` option.\n\nNow the callable defined by this option have to return a condition object (or null).\nYou can create this object by using the new `createCondition()` method from the $query object passed to the callable.\nThe callable should not add the condition to the doctrine query builder itself.\n\nBefore:\n\n```php\n$builder->add('name', 'filter_text', array(\n    'apply_filter' => function (QueryInterface $filterQuery, $field, $values) {\n        if (!empty($values['value'])) {\n            $qb = $filterQuery->getQueryBuilder();\n            $qb->andWhere($filterQuery->getExpr()->eq($field, $values['value']));\n        }\n    },\n));\n```\n\nAfter:\n\n```php\n$builder->add('name', 'filter_text', array(\n    'apply_filter' => function (QueryInterface $filterQuery, $field, $values) {\n        if (!empty($values['value']) {\n            $paramName = sprintf('p_%s', str_replace('.', '_', $field));\n\n            // expression\n            $expression = $filterQuery->getExpr()->eq($field, ':'.$paramName);\n\n            // parameters\n            $parameters = array(\n                $paramName => array($values['value'], \\PDO::PARAM_STR), // name => [value, type]\n                // OR\n                // $paramName => $values['value'] // name => value\n            );\n\n            return $filterQuery->createCondition($expression, $parameters);\n        }\n\n        return null;\n    },\n));\n```",
-			"file": "vendor/lexik/form-filter-bundle/UPGRADE-3.0.md",
-			"file_size": 1485,
-			"file_write_time": 131037617179471073,
-			"settings":
-			{
-				"buffer_size": 1485,
 				"line_ending": "Unix"
 			}
 		},
@@ -133,6 +122,14 @@
 				"buffer_size": 941,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "Resources/skeleton/crud/controller.php.twig",
+			"settings":
+			{
+				"buffer_size": 1749,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -180,6 +177,7 @@
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud",
+		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/crud/views/others",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/filter",
 		"/home/aleste/Proyectos/MisBundles/AdminLTEGeneratorBundle/Resources/skeleton/form",
@@ -387,7 +385,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -418,7 +416,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -449,7 +447,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -477,10 +475,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 170.0,
+						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -489,15 +487,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3110,
+						"buffer_size": 3253,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2040,
+								2054
 							]
 						],
 						"settings":
@@ -507,10 +505,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 289.0,
+						"translation.y": 1003.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -537,10 +535,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 612.0,
+						"translation.y": 816.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -556,8 +554,8 @@
 						"selection":
 						[
 							[
-								15,
-								47
+								675,
+								675
 							]
 						],
 						"settings":
@@ -570,41 +568,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "vendor/lexik/form-filter-bundle/UPGRADE-3.0.md",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1485,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "Resources/skeleton/crud/actions/edit.php.twig",
 					"semi_transient": false,
 					"settings":
@@ -631,11 +599,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"file": "Resources/skeleton/crud/actions/delete.php.twig",
 					"semi_transient": false,
 					"settings":
@@ -662,11 +630,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "Resources/skeleton/crud/actions/index.php.twig",
 					"semi_transient": false,
 					"settings":
@@ -697,7 +665,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "Resources/skeleton/crud/views/show.html.twig.twig",
 					"semi_transient": false,
 					"settings":
@@ -724,11 +692,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 10,
 					"file": "Resources/skeleton/crud/views/filter.html.twig.twig",
 					"semi_transient": false,
 					"settings":
@@ -754,11 +722,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 11,
 					"file": "Resources/skeleton/crud/views/index.html.twig.twig",
 					"semi_transient": false,
 					"settings":
@@ -781,14 +749,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 85.0,
+						"translation.y": 238.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 12,
 					"file": "Resources/skeleton/crud/views/others/record_actions.html.twig.twig",
 					"semi_transient": false,
 					"settings":
@@ -814,7 +782,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Resources/skeleton/crud/controller.php.twig",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 459.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1111,7 +1109,7 @@
 		[
 			[
 				"",
-				"~/Proyectos/www/muniBragado/muniBragado.sublime-project"
+				"~/Proyectos/www/muniBragado/munibragado.sublime-workspace"
 			],
 			[
 				"aob",

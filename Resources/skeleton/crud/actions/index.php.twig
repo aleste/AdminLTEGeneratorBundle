@@ -12,15 +12,14 @@
 {% endblock phpdoc_method_annotations %}
      */
 {% block method_definition %}
-    public function indexAction()
+    public function indexAction(Request $request)
 {% endblock method_definition %}
     {
 {% block method_body %}
 
         $em = $this->getDoctrine()->getManager();
-
-        $form = $this->createForm(new {{ entity_class }}FilterType());
-        if (!is_null($response = $this->saveFilter($form, '{{ entity|lower }}', '{{ route_name_prefix }}_index'))) {
+        $form = $this->createForm({{ namespace }}\Form\{{ entity }}FilterType::class);
+        if (!is_null($response = $this->saveFilter($request, $form, '{{ entity|lower }}', '{{ route_name_prefix }}_index'))) {
             return $response;
         }                
 
