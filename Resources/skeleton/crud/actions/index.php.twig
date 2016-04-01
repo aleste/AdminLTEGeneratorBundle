@@ -18,7 +18,7 @@
 {% block method_body %}
 
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm({{ namespace }}\Form\{{ entity }}FilterType::class);
+        $form = $this->createForm('{{ namespace }}\Form\{{ entity }}FilterType');
         if (!is_null($response = $this->saveFilter($request, $form, '{{ entity|lower }}', '{{ route_name_prefix }}_index'))) {
             return $response;
         }                
