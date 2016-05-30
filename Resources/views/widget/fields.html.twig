@@ -5,8 +5,7 @@
 {% spaceless %}
     id="{{ id }}" name="{{ full_name }}"    
     {%- if disabled %} disabled="disabled"{% endif -%}
-    {%- if required %} required="required"{% endif -%}    
-    {%- if pattern %} pattern="{{ pattern }}"{% endif -%}
+    {%- if required %} required="required"{% endif -%}        
     {%- for attrname, attrvalue in attr -%}
         {{- " " -}}
         {%- if attrname in ['placeholder', 'title'] -%}
