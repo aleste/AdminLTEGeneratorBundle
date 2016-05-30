@@ -29,9 +29,9 @@
      * @param  QueryBuilder   $qb
      * @return SlidingPagination
      */
-    protected function filter(FormInterface $form, QueryBuilder $qb, $name)
+    protected function filter(Request $request, FormInterface $form, QueryBuilder $qb, $name)
     {
-        if (!is_null($values = $this->getFilter($name))) {
+        if (!is_null($values = $this->getFilter($request, $name))) {
             if ($form->submit($values)->isValid()) {
                 $this->get('lexik_form_filter.query_builder_updater')->addFilterConditions($form, $qb);
             }
@@ -39,7 +39,7 @@
     
         $this->addQueryBuilderSort($qb, $name);
         
-        return $this->get('knp_paginator')->paginate($qb->getQuery(), $this->getRequest()->query->get('page', 1), (null !== $this->container->getParameter('knp_paginator.page_range')) ? $this->container->getParameter('knp_paginator.page_range') : 20);
+        return $this->get('knp_paginator')->paginate($qb->getQuery(), $request->query->get('page', 1), (null !== $this->container->getParameter('knp_paginator.page_range')) ? $this->container->getParameter('knp_paginator.page_range') : 20);
 
 
     }
@@ -50,7 +50,7 @@
      * @param  string $name
      * @return array
      */
-    protected function getFilter($name)
+    protected function getFilter(Request $request, $name)
     {
-        return $this->getRequest()->getSession()->get('filter.' . $name);
+        return $request->getSession()->get('filter.' . $name);
     }

@@ -6,9 +6,9 @@
      * @Route("/order/{field}/{type}", name="{{ route_name_prefix }}_sort")
 {% endif %}
      */
-    public function sortAction($field, $type)
+    public function sortAction(Request $request, $field, $type)
     {
-        $this->setOrder('{{ entity|lower }}', $field, $type);
+        $this->setOrder($request, '{{ entity|lower }}', $field, $type);
 
         return $this->redirect($this->generateUrl('{{ route_name_prefix }}_index'));
     }
@@ -18,18 +18,18 @@
      * @param string $field field name
      * @param string $type  sort type ("ASC"/"DESC")
      */
-    protected function setOrder($name, $field, $type = 'ASC')
+    protected function setOrder(Request $request, $name, $field, $type = 'ASC')
     {
-        $this->getRequest()->getSession()->set('sort.' . $name, compact('field', 'type'));
+        $request->getSession()->set('sort.' . $name, compact('field', 'type'));
     }
 
     /**
      * @param  string $name
      * @return array
      */
-    protected function getOrder($name)
+    protected function getOrder($request, $name)
     {
-        $session = $this->getRequest()->getSession();
+        $session = $request->getSession();
 
         return $session->has('sort.' . $name) ? $session->get('sort.' . $name) : null;
     }

@@ -24,10 +24,10 @@
         }                
 
         $qb = $em->getRepository('{{ bundle }}:{{ entity }}')->createQueryBuilder('{{ entity|lower|slice(0, 1) }}');
-        if (is_array($order = $this->getOrder('{{ entity|lower }}'))) {
+        if (is_array($order = $this->getOrder($request, '{{ entity|lower }}'))) {
             $qb->orderBy($order['field'], $order['type']);
         }
-        $pagination = $this->filter($form, $qb, '{{ entity|lower }}');
+        $pagination = $this->filter($request, $form, $qb, '{{ entity|lower }}');
 
 {% endblock method_body %}
 
