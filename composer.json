@@ -1,6 +1,6 @@
 {
     "name": "aleste/adminlte-generator-bundle",
-    "description": "Crud generator with adminlte theme",
+    "description": "Crud generator with AdminLTE theme",
     "keywords": [],
     "type": "symfony-bundle",
     "license": "MIT",
@@ -21,7 +21,7 @@
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
-            "dev-master": "3.1.x-dev"
+            "dev-master": "3.2.x-dev"
         }
     }
 }
