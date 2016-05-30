@@ -37,7 +37,7 @@
             }
         }
     
-        $this->addQueryBuilderSort($qb, $name);
+        $this->addQueryBuilderSort($request, $qb, $name);
         
         return $this->get('knp_paginator')->paginate($qb->getQuery(), $request->query->get('page', 1), (null !== $this->container->getParameter('knp_paginator.page_range')) ? $this->container->getParameter('knp_paginator.page_range') : 20);
 
