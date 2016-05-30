@@ -38,10 +38,10 @@
      * @param QueryBuilder $qb
      * @param string       $name
      */
-    protected function addQueryBuilderSort(QueryBuilder $qb, $name)
+    protected function addQueryBuilderSort(Request $request, QueryBuilder $qb, $name)
     {
         $alias = current($qb->getDQLPart('from'))->getAlias();
-        if (is_array($order = $this->getOrder($name))) {
+        if (is_array($order = $this->getOrder($request, $name))) {
             $qb->orderBy($alias . '.' . $order['field'], $order['type']);
         }
     }
