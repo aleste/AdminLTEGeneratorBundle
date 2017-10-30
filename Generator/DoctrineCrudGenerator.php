@@ -103,7 +103,7 @@ class DoctrineCrudGenerator extends Generator
         $this->generateModalDeleteView($dir);
         $this->generateFilterView($dir);
 
-        //$this->generateTestClass();
+        $this->generateTestClass();
         $this->generateConfiguration();
     }
 

@@ -44,7 +44,6 @@ class GenerateDoctrineCrudCommand extends BaseCommand
                 new InputOption('with-write', '', InputOption::VALUE_NONE, 'Whether or not to generate create, new and delete actions'),
                 new InputOption('format', '', InputOption::VALUE_REQUIRED, 'The format used for configuration files (php, xml, yml, or annotation)', 'annotation'),
                 new InputOption('overwrite', '', InputOption::VALUE_NONE, 'Overwrite any existing controller or form class when generating the CRUD contents'),
-                new InputOption('template', 't', InputOption::VALUE_REQUIRED, 'The base template which will be extended by the templates', 'AdminLTECrudGeneratorBundle::base.html.twig'),
             ))
             ->setHelp(<<<EOT
 The <info>%command.name%</info> command generates a CRUD based on a Doctrine entity.
@@ -206,20 +205,6 @@ EOT
         ));
         $prefix = $questionHelper->ask($input, $output, new Question($questionHelper->getQuestion('Routes prefix', '/'.$prefix), '/'.$prefix));
         $input->setOption('route-prefix', $prefix);
-
-        // template?
-        $template = $input->getOption('template');
-        $output->writeln(array(
-            '',
-            'By default, the created views extends the CrudGeneratorBundle::base.html.twig',
-            'You can also set your template which the views to extend, for example base.html.twig ',
-            '',
-        ));
-        $question = new Question($questionHelper->getQuestion('Base template for the views', $template), $template);
-        $template = $questionHelper->ask($input, $output, $question);
-        $input->setOption('template', $template);
-
-
 
         // summary
         $output->writeln(array(
