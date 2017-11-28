@@ -17,10 +17,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
         {% endif %}        
     {%- endif %}
 {%- endfor %}
-
 {% for formType in formTypes %}
 {% if formType == 'date' %}
 use Symfony\Component\Form\Extension\Core\Type\DateType;        
+{% endif %}
+{% if formType == 'datetime' %}
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;        
+{% endif %}
+{% if formType == 'time' %}
+use Symfony\Component\Form\Extension\Core\Type\TimeType;        
 {% endif %}
 {% endfor %}
 
@@ -43,7 +48,7 @@ class {{ form_class }} extends AbstractType
         {%- if field is defined and metadata.type in ['date', 'time', 'datetime'] %}            
         {%- if metadata.type == 'date' %}
 
-            ->add('{{ field }}', 'DateType::class', [
+            ->add('{{ field }}', DateType::class, [
                 'label' => '{{ field|capitalize }}',
                 'widget' => 'single_text',
                 'format' => 'dd-MM-yyyy',
@@ -53,11 +58,22 @@ class {{ form_class }} extends AbstractType
                     'data-date-language' => 'es'
                 ]
             ])
+        {%- elseif metadata.type == 'datetime' %}
+
+            ->add('{{ field }}', DateTimeType::class, [
+                'label' => '{{ field|capitalize }}'
+            ])            
+        {%- elseif metadata.type == 'time' %}
+
+            ->add('{{ field }}', TimeType::class, [
+                'label' => '{{ field|capitalize }}'
+            ])
         {%- else %}
 
             ->add('{{ field }}', '{{ metadata.type }}', [
                 'label' => '{{ field|capitalize }}'
-            ])
+            ])            
+
         {%- endif %}
 
         {%- elseif field != 'id' %}
