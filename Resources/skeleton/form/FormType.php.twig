@@ -9,9 +9,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 {% endif %}
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+{% set formTypes = [] %}
 {% for field, metadata in fields -%}
-    {% set formTypes = [] %}
     {%- if field is defined and metadata.type in ['date', 'time', 'datetime'] %}
         {% if metadata.type not in formTypes %}
             {% set formTypes = formTypes|merge([metadata.type]) %}
