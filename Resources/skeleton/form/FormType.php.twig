@@ -9,6 +9,22 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 {% endif %}
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
+{% for field, metadata in fields -%}
+    {% set formTypes = [] %}
+    {%- if field is defined and metadata.type in ['date', 'time', 'datetime'] %}
+        {% if metadata.type not in formTypes %}
+            {% set formTypes = formTypes|merge([metadata.type]) %}
+        {% endif %}        
+    {%- endif %}
+{%- endfor %}
+
+{% for formType in formTypes %}
+{% if formType == 'date' %}
+use Symfony\Component\Form\Extension\Core\Type\DateType;        
+{% endif %}
+{% endfor %}
+
 {% endblock use_statements %}
 
 {% block class_definition %}
@@ -25,10 +41,10 @@ class {{ form_class }} extends AbstractType
     {
         $builder
         {% for field, metadata in fields -%}
-        {%- if field is defined and metadata.type in ['date', 'time', 'datetime'] %}
+        {%- if field is defined and metadata.type in ['date', 'time', 'datetime'] %}            
         {%- if metadata.type == 'date' %}
 
-            ->add('{{ field }}', '{{ metadata.type }}', [
+            ->add('{{ field }}', 'DateType::class', [
                 'label' => '{{ field|capitalize }}',
                 'widget' => 'single_text',
                 'format' => 'dd-MM-yyyy',
