@@ -77,7 +77,7 @@ class DoctrineCrudGenerator extends Generator
         $this->bundle = $bundle;
         $this->metadata = $metadata;
         $this->setFormat($format);
-
+        $this->generateBaseControllerClass();
         $this->generateControllerClass($forceOverwrite);
 
         $dir = sprintf('%s/Resources/views/%s', $this->rootDir, str_replace('\\', '/', strtolower($this->entity)));
@@ -153,9 +153,9 @@ class DoctrineCrudGenerator extends Generator
     }
 
     /**
-     * Generates the baase controller class only.
+     * Generates the base controller class only.
      */
-    protected function generateBaseControllerClass($forceOverwrite)
+    protected function generateBaseControllerClass()
     {
         $dir = $this->bundle->getPath();
 
