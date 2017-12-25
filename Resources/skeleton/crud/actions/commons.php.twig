@@ -1,0 +1,87 @@
+
+    /**
+     * Save filters
+     *
+     * @param  FormInterface $form
+     * @param  string        $name        route/entity name
+     * @param  string        $route       route name, if different from entity name
+     * @param  array         $params      possible route parameters
+     * @return Response
+     */
+    protected function saveFilter(Request $request, FormInterface $form, $name, $route = null, array $params = null)
+    {
+        $url = is_null($route) ? $this->generateUrl($name) : $this->generateUrl($route, is_null($params) ? array() : $params);
+        if ($request->query->has('submit-filter') && $form->handleRequest($request)->isValid()) {
+            $request->getSession()->set('filter.' . $name, $request->query->get($form->getName()));
+
+            return $this->redirect($url);
+        } elseif ($request->query->has('reset-filter')) {
+            $request->getSession()->set('filter.' . $name, null);
+
+            return $this->redirect($url);
+        }
+    }
+
+    /**
+     * Filter form
+     *
+     * @param  FormInterface  $form
+     * @param  QueryBuilder   $qb
+     * @return SlidingPagination
+     */
+    protected function filter(Request $request, FormInterface $form, QueryBuilder $qb, $name)
+    {
+        if (!is_null($values = $this->getFilter($request, $name)) && $form->submit($values)->isValid()) {
+            $this->get('lexik_form_filter.query_builder_updater')->addFilterConditions($form, $qb);
+        }
+
+        $this->addQueryBuilderSort($request, $qb, $name);
+
+        return $this->get('knp_paginator')->paginate($qb->getQuery(), $request->query->get('page', 1), (null !== $this->container->getParameter('knp_paginator.page_range')) ? $this->container->getParameter('knp_paginator.page_range') : 20);
+
+
+    }
+
+    /**
+     * Get filters from session
+     *
+     * @param  string $name
+     * @return array
+     */
+    protected function getFilter(Request $request, $name)
+    {
+        return $request->getSession()->get('filter.' . $name);
+    }
+
+    /**
+     * @param string $name  session name
+     * @param string $field field name
+     * @param string $type  sort type ("ASC"/"DESC")
+     */
+    protected function setOrder(Request $request, $name, $field, $type = 'ASC')
+    {
+        $request->getSession()->set('sort.' . $name, compact('field', 'type'));
+    }
+
+    /**
+     * @param  string $name
+     * @return array
+     */
+    protected function getOrder($request, $name)
+    {
+        $session = $request->getSession();
+
+        return $session->has('sort.' . $name) ? $session->get('sort.' . $name) : null;
+    }
+
+    /**
+     * @param QueryBuilder $qb
+     * @param string       $name
+     */
+    protected function addQueryBuilderSort(Request $request, QueryBuilder $qb, $name)
+    {
+        $alias = current($qb->getDQLPart('from'))->getAlias();
+        if (is_array($order = $this->getOrder($request, $name))) {
+            $qb->orderBy($alias . '.' . $order['field'], $order['type']);
+        }
+    }    

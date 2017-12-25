@@ -1,0 +1,29 @@
+<?php
+
+namespace {{ namespace }}\Controller{{ entity_namespace ? '\\' ~ entity_namespace : '' }};
+
+{% block use_statements %}
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\FormInterface;
+use Doctrine\ORM\QueryBuilder;
+use {{ namespace }}\Entity\{{ entity }};
+use {{ namespace }}\Form\{{ entity }}Type;
+{% endblock use_statements %}
+
+/**
+{% block phpdoc_class_header %}
+ * Aleste Base controller.
+{% endblock phpdoc_class_header %}
+ *
+ */
+{% block class_definition %}
+class AlesteBaseController extends Controller
+{% endblock class_definition %}
+{
+{% block class_body %}
+      {%- include 'crud/actions/commons.php.twig' %}
+{% endblock class_body %}
+}
