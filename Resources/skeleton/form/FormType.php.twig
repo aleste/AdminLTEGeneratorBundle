@@ -18,6 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
     {%- endif %}
 {%- endfor %}
 {% for formType in formTypes %}
+
 {% if formType == 'date' %}
 use Symfony\Component\Form\Extension\Core\Type\DateType;        
 {% endif %}
