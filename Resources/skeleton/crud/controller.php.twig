@@ -4,7 +4,7 @@ namespace {{ namespace }}\Controller{{ entity_namespace ? '\\' ~ entity_namespac
 
 {% block use_statements %}
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use {{ namespace }}\Controller\AlesteBaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\FormInterface;
@@ -25,7 +25,7 @@ use {{ namespace }}\Form\{{ entity }}Type;
 {% endblock phpdoc_class_annotations %}
  */
 {% block class_definition %}
-class {{ entity_class }}Controller extends Controller
+class {{ entity_class }}Controller extends AlesteBaseController
 {% endblock class_definition %}
 {
 {% block class_body %}
@@ -45,13 +45,9 @@ class {{ entity_class }}Controller extends Controller
         {%- include 'crud/actions/edit.php.twig' %}
     {%- endif %}
 
-    {%- if 'filter' in actions %}
-        {%- include 'crud/actions/filter.php.twig' %}
-    {%- endif %}    
-
     {%- if 'sort' in actions %}
         {%- include 'crud/actions/sort.php.twig' %}
-    {%- endif %}        
+    {%- endif %}
 
     {%- if 'delete' in actions %}
         {%- include 'crud/actions/delete.php.twig' %}

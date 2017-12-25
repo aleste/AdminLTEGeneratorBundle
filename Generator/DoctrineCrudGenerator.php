@@ -153,6 +153,43 @@ class DoctrineCrudGenerator extends Generator
     }
 
     /**
+     * Generates the baase controller class only.
+     */
+    protected function generateBaseControllerClass($forceOverwrite)
+    {
+        $dir = $this->bundle->getPath();
+
+        $parts = explode('\\', $this->entity);
+        $entityClass = array_pop($parts);
+        $entityNamespace = implode('\\', $parts);
+
+        $target = sprintf(
+            '%s/Controller/%s/%sAlesteBaseController.php',
+            $dir,
+            str_replace('\\', '/', $entityNamespace),
+            $entityClass
+        );
+
+        if (!file_exists($target)) {
+          $this->renderFile('crud/aleste_base_controller.php.twig', $target, array(
+              'actions' => $this->actions,
+              'route_prefix' => $this->routePrefix,
+              'route_name_prefix' => $this->routeNamePrefix,
+              'bundle' => $this->bundle->getName(),
+              'entity' => $this->entity,
+              'entity_singularized' => $this->entitySingularized,
+              'entity_pluralized' => $this->entityPluralized,
+              'entity_class' => $entityClass,
+              'namespace' => $this->bundle->getNamespace(),
+              'entity_namespace' => $entityNamespace,
+              'format' => $this->format,
+          ));
+        }
+
+
+    }
+
+    /**
      * Generates the controller class only.
      */
     protected function generateControllerClass($forceOverwrite)
@@ -199,8 +236,8 @@ class DoctrineCrudGenerator extends Generator
         $entityNamespace = implode('\\', $parts);
 
         $dir = $this->bundle->getPath().'/Tests/Controller';
-            
-        $target = $dir.'/'.str_replace('\\', '/', $entityNamespace).'/'.$entityClass.'ControllerTest.php';    
+
+        $target = $dir.'/'.str_replace('\\', '/', $entityNamespace).'/'.$entityClass.'ControllerTest.php';
 
         $this->renderFile('crud/tests/test.php.twig', $target, array(
             'route_prefix' => $this->routePrefix,
@@ -321,7 +358,7 @@ class DoctrineCrudGenerator extends Generator
     protected function generateModalDeleteView($dir)
     {
         $this->renderFile('crud/views/others/modal_delete.html.twig.twig', $dir.'/_modal_delete.html.twig', array());
-    }    
+    }
 
     /**
      * Returns an array of record actions to generate (edit, show).

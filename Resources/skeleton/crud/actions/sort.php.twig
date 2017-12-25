@@ -12,36 +12,3 @@
 
         return $this->redirect($this->generateUrl('{{ route_name_prefix }}_index'));
     }
-
-    /**
-     * @param string $name  session name
-     * @param string $field field name
-     * @param string $type  sort type ("ASC"/"DESC")
-     */
-    protected function setOrder(Request $request, $name, $field, $type = 'ASC')
-    {
-        $request->getSession()->set('sort.' . $name, compact('field', 'type'));
-    }
-
-    /**
-     * @param  string $name
-     * @return array
-     */
-    protected function getOrder($request, $name)
-    {
-        $session = $request->getSession();
-
-        return $session->has('sort.' . $name) ? $session->get('sort.' . $name) : null;
-    }
-
-    /**
-     * @param QueryBuilder $qb
-     * @param string       $name
-     */
-    protected function addQueryBuilderSort(Request $request, QueryBuilder $qb, $name)
-    {
-        $alias = current($qb->getDQLPart('from'))->getAlias();
-        if (is_array($order = $this->getOrder($request, $name))) {
-            $qb->orderBy($alias . '.' . $order['field'], $order['type']);
-        }
-    }
