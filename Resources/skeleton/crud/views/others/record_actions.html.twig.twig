@@ -15,6 +15,6 @@
 {% endif %}
 
 {%- if ('delete' in actions) and (not hide_delete) %}
-{{ "{% include '"~ route_name_prefix ~"/_modal_delete.html.twig' %}" }}
+{{ "{% include 'AdminLTEGeneratorBundle:commons:modal_delete.html.twig' %}" }}
 {{ '{{ form_end(delete_form) }}' }}
 {%- endif %}

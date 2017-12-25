@@ -25,7 +25,7 @@
             $em->persist(${{ entity_singularized }});
             $em->flush();
 
-            $this->addFlash('success', 'Operación efectuada correctamente!');
+            $this->addSuccesFlash();
 
             return $this->redirectToRoute('{{ route_name_prefix }}_edit', array('id' => ${{ entity_singularized }}->getId()));
         }
