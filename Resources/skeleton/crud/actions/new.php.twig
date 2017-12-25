@@ -25,9 +25,9 @@
             $em->persist(${{ entity_singularized }});
             $em->flush();
 
-            $this->addFlash('success', 'Operación efectuada correctamente!');
-            
-            return $this->redirectToRoute('{{ route_name_prefix }}_index');            
+            $this->addSuccesFlash();
+
+            return $this->redirectToRoute('{{ route_name_prefix }}_index');
 
         }
 {% endblock method_body %}

@@ -164,10 +164,9 @@ class DoctrineCrudGenerator extends Generator
         $entityNamespace = implode('\\', $parts);
 
         $target = sprintf(
-            '%s/Controller/%s/%sAlesteBaseController.php',
+            '%s/Controller/%s/AlesteBaseController.php',
             $dir,
-            str_replace('\\', '/', $entityNamespace),
-            $entityClass
+            str_replace('\\', '/', $entityNamespace)            
         );
 
         if (!file_exists($target)) {

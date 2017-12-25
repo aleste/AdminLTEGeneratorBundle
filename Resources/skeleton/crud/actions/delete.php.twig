@@ -24,15 +24,15 @@
             try{
               $em->remove(${{ entity_singularized }});
               $em->flush();
-              $this->addFlash('success', 'Operación efectuada correctamente!');
+              $this->addSuccesFlash();
             } catch (\Exception $e) {
               if($e->getPrevious()->getCode() == 23000){
-                $this->addFlash('danger', 'No se puedo borrar. El elemento posee relaciones con otras entidades.');
+                $this->addErrorFlash('No se puedo borrar. El elemento posee relaciones con otras entidades.');
               }else{
-                  throw new \Exception($e);    
+                $this->addErrorFlash();                  
               }
             }
-            
+
         }
 {% endblock method_body %}
 

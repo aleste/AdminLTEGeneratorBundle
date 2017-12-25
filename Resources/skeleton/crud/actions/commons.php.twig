@@ -84,4 +84,22 @@
         if (is_array($order = $this->getOrder($request, $name))) {
             $qb->orderBy($alias . '.' . $order['field'], $order['type']);
         }
-    }    
+    }
+
+    /**
+     * @param  string $msg
+     * @return success flash essage
+     */
+    protected function addSuccesFlash($msg = 'Operación efectuada correctamente.')
+    {
+        $this->addFlash('success', $msg);
+    }
+
+    /**
+     * @param  string $msg
+     * @return error flash essage
+     */
+    protected function addErrorFlash($msg = 'Ocurrió un error.')
+    {
+        $this->addFlash('danger', $msg);
+    }
